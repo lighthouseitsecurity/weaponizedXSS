@@ -1,7 +1,7 @@
 # Weaponized XSS payloads
 
 * a collection of XSS payloads used for:
-  * increasing impact (Bug Bounties; P3 -> P1)
+  * increasing impact (Bug Bounties; P3 ➔ P1)
   * phishing attacks (Red Teaming)
 * can also be used for raising security awareness via trainings/demos
 
