@@ -63,7 +63,7 @@ curl -s "http://192.168.5.19/modules/mod_rce_poc/mod_RCE_PoC.php?pass=test&cmd=i
 
 6. [optional] uninstall module
 
-*Joomla -> System -> [Manage] Extensions -> (sort by latest ID) -> (mark checkbox) Joomla RCE PoC -> Uninstall -> Yes*
+*Joomla ➔ System ➔ [Manage] Extensions ➔ (sort by latest ID) ➔ (mark checkbox) Joomla RCE PoC ➔ Uninstall ➔ Yes*
 
 ## Screenshots
 
