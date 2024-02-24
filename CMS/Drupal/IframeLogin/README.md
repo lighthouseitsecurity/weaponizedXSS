@@ -1,5 +1,15 @@
 # [Phish] Iframe Login Page
 
+* **NOTES**:
+  * stealthy
+  * persistent
+    * exploit stays active:
+      * upon failed login
+      * upon logout (i.e. login ➔ logout)
+    * exploit will remain active until victim's web browsers cache is cleared
+  * avoids excessive log spam
+    * exploit exfiltrates credentials only on submit form event (logs both successful and failed authentication attempts)
+
 ## Test Environment
 
 ### Web Browsers (20240224)
