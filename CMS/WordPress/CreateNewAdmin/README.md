@@ -1,1 +1,1 @@
-# [Acc] Create new admin user
+# [Acc] Create New Admin User
