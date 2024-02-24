@@ -1,5 +1,19 @@
 # [Phish] Windows Authentication Prompt
 
+* **NOTE**: two supported options:
+  * no CSP bypass - issue AJAX request
+```
+...
+var bypassCSP = false;
+...
+```
+  * CSP bypass - issue hard redirect (uses `redir.php`)
+```
+...
+var bypassCSP = true;
+...
+```
+
 ## Test Environment
 
 ### Web Browsers (20240224)
