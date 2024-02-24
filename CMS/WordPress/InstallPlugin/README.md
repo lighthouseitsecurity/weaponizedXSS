@@ -55,7 +55,7 @@ curl -s "http://192.168.5.10/wp-content/plugins/WP_PoC/WP_PoC.php?pass=test&cmd=
 
 7. [optional] uninstall plugin
 
-*WordPress -> Plugins -> Installed Plugins -> [WP RCE PoC - Install Plugin] Delete -> OK*
+*WordPress ➔ Plugins ➔ Installed Plugins ➔ [WP RCE PoC - Install Plugin] Delete ➔ OK*
 
 ## Screenshots
 
