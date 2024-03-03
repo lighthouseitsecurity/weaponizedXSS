@@ -66,7 +66,7 @@
 
     `drupalRoot` - path to Drupal installation on the target system (e.g. `"/path"`)
 
-4. [setup exploit] setup web server (to serve the payload/module
+4. [setup exploit] setup web server (to serve the payload/module)
 
 5. [social engineering attack] victim user (with administrative privileges) logs in
 
