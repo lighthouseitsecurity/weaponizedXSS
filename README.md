@@ -1,4 +1,4 @@
-# Weaponized XSS payloads
+# Weaponized XSS Payloads
 
 * a collection of XSS payloads used for:
   * increasing impact (Bug Bounties; P3 ➔ P1)
