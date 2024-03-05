@@ -12,3 +12,15 @@
     * process not documented here (out of scope)
 
 * **NOTE**: this project is work in progress - new content will be progressively added (when possible, time wise; low priority)
+
+## Recommendations
+
+This section is included to provide an overview of recommended countermeasures for addressing security risks, related to documented XSS payloads.
+
+* perform periodic technical IT security assessments of target organization's external and internal web applications
+  * depending on the current security maturity level and available resources of the target organization, the following assessments should be considered:
+    * penetration tests
+    * source code review
+    * red teaming
+    * bug bounty
+* provide end-user IT security education and security awareness trainings to target organization's employees
