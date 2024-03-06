@@ -44,7 +44,7 @@
 
 6. [restore file] restore file via GUI
 
-    *Joomla ➔ System ➔ [Templates] Site Templates ➔ Cassiopeia Details and Files ➔ [tab] Editor ➔ /templlates/cassiopeia - error.php ➔ (remove backdoor) ➔ Save & Close*
+    *Joomla ➔ System ➔ [Templates] Site Templates ➔ Cassiopeia Details and Files ➔ [tab] Editor ➔ /templates/cassiopeia - error.php ➔ (remove backdoor) ➔ Save & Close*
 
 ## Screenshots
 
