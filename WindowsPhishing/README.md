@@ -1,6 +1,6 @@
 # [Phish] Windows Authentication Prompt
 
-<p align="justify">This payload adds HTML code as an overlay to the target web page (containing the XSS vulnerability). The code displays the dreaded Windows Authentication prompt popup window. The overlay creates the illusion that the operating system spawned the prompt. Once they encounter such an authentication prompt, most users have a (proven) tendency to blindly provide it credentials (which results with a high success rate of such phishing attacks).<p>
+<p align="justify">This payload adds HTML code as an overlay to the target web page (containing the XSS vulnerability). The code displays the dreaded Windows Authentication prompt popup window. The overlay creates the illusion that the operating system spawned the prompt. Once they encounter such an authentication prompt, most users have a (proven) tendency to blindly provide it credentials (which contributes to a higher success rate of such phishing attacks).<p>
 
 Typical use-case scenarios:
 * external network perspective (Internet)
@@ -57,7 +57,7 @@ The payload (`winph.js`) supports options:
 
     `attPort` - exfiltration web server port
 
-    `bypassCSP` - use/do not use CSP bypass
+    `bypassCSP` - use/do not use CSP bypass (true/false)
 
     `url` - exfiltration web server URL
 
