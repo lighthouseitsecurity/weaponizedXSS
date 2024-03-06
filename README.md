@@ -15,11 +15,11 @@
 
 ## Recommendations
 
-This section is included to provide an overview of recommended countermeasures for addressing security risks, related to documented XSS payloads.
+<p align="justify">This section is included to provide an overview of recommended countermeasures for addressing security risks, related to documented XSS payloads.<p>
 
 * perform periodic technical IT security assessments of target organization's external and internal web applications
   * depending on the current security maturity level and available resources of the target organization, the following assessments should be considered:
-    * penetration tests
+    * penetration test
     * source code review
     * red teaming
     * bug bounty
