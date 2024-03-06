@@ -17,10 +17,13 @@
 
 <p align="justify">This section is included to provide an overview of recommended countermeasures for addressing security risks, related to documented XSS payloads.<p>
 
-* perform periodic technical IT security assessments of target organization's external and internal web applications
+* [**all**] perform periodic technical IT security assessments of target organization's external and internal web applications
   * depending on the current security maturity level and available resources of the target organization, the following assessments should be considered:
     * penetration test
     * source code review
     * red teaming
     * bug bounty
-* provide end-user IT security education and security awareness trainings to target organization's employees
+* [**all**] provide end-user IT security education and security awareness trainings to target organization's employees
+* [**iframe login**] set directive for `X-Frame-Options` to `DENY` [1] for all affected login pages
+
+[1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
