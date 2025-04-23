@@ -83,17 +83,44 @@ The payload (`winph.js`) supports options:
 
 * **NOTE**: the screenshot covers steps 1 to 4 from the "Exploitation Steps" chapter
 
-![Image](screenshots/Windows_phish_-_cred_exfil_-_1-1.png)
+<p align="center">
+  <kbd>
+    <picture>
+      <source media="" srcset="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/WindowsPhishing/screenshots/Windows_phish_-_cred_exfil_-_1-1.png">
+      <img src="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/WindowsPhishing/screenshots/Windows_phish_-_cred_exfil_-_1-1.png">
+    </picture>
+  </kbd>
+</p>
 
 * [web browser rendering] Mozilla FireFox
 
-![Image](screenshots/Windows_phish_-_web_browser_rendering_-_Mozilla_FireFox_-_1-1.png)
+<p align="center">
+  <kbd>
+    <picture>
+      <source media="" srcset="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/WindowsPhishing/screenshots/Windows_phish_-_web_browser_rendering_-_Mozilla_FireFox_-_1-1.png">
+      <img src="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/WindowsPhishing/screenshots/Windows_phish_-_web_browser_rendering_-_Mozilla_FireFox_-_1-1.png">
+    </picture>
+  </kbd>
+</p>
 
 * [web browser rendering] Google Chrome
 
-![Image](screenshots/Windows_phish_-_web_browser_rendering_-_Google_Chrome_-_1-1.png)
+<p align="center">
+  <kbd>
+    <picture>
+      <source media="" srcset="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/WindowsPhishing/screenshots/Windows_phish_-_web_browser_rendering_-_Google_Chrome_-_1-1.png">
+      <img src="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/WindowsPhishing/screenshots/Windows_phish_-_web_browser_rendering_-_Google_Chrome_-_1-1.png">
+    </picture>
+  </kbd>
+</p>
 
 * [web browser rendering] Microsoft Edge
 
-![Image](screenshots/Windows_phish_-_web_browser_rendering_-_Microsoft_Edge_-_1-1.png)
-
+<p align="center">
+  <kbd>
+    <picture>
+      <source media="" srcset="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/WindowsPhishing/screenshots/Windows_phish_-_web_browser_rendering_-_Microsoft_Edge_-_1-1.png">
+      <img src="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/WindowsPhishing/screenshots/Windows_phish_-_web_browser_rendering_-_Microsoft_Edge_-_1-1.png">
+    </picture>
+  </kbd>
+</p>
