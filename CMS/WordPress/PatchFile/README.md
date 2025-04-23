@@ -56,4 +56,11 @@
 
 * **NOTE**: the screenshot covers steps 2 to 6 from the "Exploitation Steps" chapter
 
-![Image](screenshots/WordPress_-_patch_file_-_1-1.png)
+<p align="center">
+  <kbd>
+    <picture>
+      <source media="" srcset="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/CMS/WordPress/PatchFile/screenshots/WordPress_-_patch_file_-_1-1.png">
+      <img src="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/CMS/WordPress/PatchFile/screenshots/WordPress_-_patch_file_-_1-1.png">
+    </picture>
+  </kbd>
+</p>
