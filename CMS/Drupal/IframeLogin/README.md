@@ -71,8 +71,8 @@
 <p align="center">
   <kbd>
     <picture>
-      <source media="" srcset="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/CMS/Drupal/CreateNewAdmin/screenshots/Drupal_-_iframe_login_-_1-1.png">
-      <img src="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/CMS/Drupal/CreateNewAdmin/screenshots/Drupal_-_iframe_login_-_1-1.png">
+      <source media="" srcset="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/CMS/Drupal/IframeLogin/screenshots/Drupal_-_iframe_login_-_1-1.png">
+      <img src="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/CMS/Drupal/IframeLogin/screenshots/Drupal_-_iframe_login_-_1-1.png">
     </picture>
   </kbd>
 </p>
