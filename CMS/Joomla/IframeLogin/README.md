@@ -68,4 +68,11 @@
 
 * **NOTE**: the screenshot covers steps 3 to 6 from the "Exploitation Steps" chapter
 
-![Image](screenshots/Joomla_-_iframe_login_-_1-1.png)
+<p align="center">
+  <kbd>
+    <picture>
+      <source media="" srcset="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/CMS/Joomla/IframeLogin/screenshots/Joomla_-_iframe_login_-_1-1.png">
+      <img src="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/CMS/Joomla/IframeLogin/screenshots/Joomla_-_iframe_login_-_1-1.png">
+    </picture>
+  </kbd>
+</p>
