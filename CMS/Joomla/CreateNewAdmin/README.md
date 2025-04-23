@@ -44,4 +44,11 @@
 
 * **NOTE**: the screenshot covers steps 1 to 4 from the "Exploitation Steps" chapter
 
-![Image](screenshots/Joomla_-_create_new_admin_-_1-1.png)
+<p align="center">
+  <kbd>
+    <picture>
+      <source media="" srcset="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/CMS/Joomla/CreateNewAdmin/screenshots/Joomla_-_create_new_admin_-_1-1.png">
+      <img src="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/main/CMS/Joomla/CreateNewAdmin/screenshots/Joomla_-_create_new_admin_-_1-1.png">
+    </picture>
+  </kbd>
+</p>
