@@ -1,6 +1,6 @@
 # Drupal
 
-Drupal is a free and open-source web CMS written in PHP and distributed under the GNU General Public License.
+Drupal is a free and open-source web CMS written in PHP.
 
 As of 2025, Drupal holds a 1.2% market share for CMS-powered websites (0.8% of all websites).
 
