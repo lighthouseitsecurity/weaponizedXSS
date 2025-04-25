@@ -36,6 +36,15 @@ Currently supported donation options:
 
 * Monero [XMR] - `86yQrfxwFjmXj75GzVts5XDAct7RZ177JVco6e1VoW7jGCoK1FgrjoPdtn1H5k4YibXkXJ7sFWEkwJ5ab6odydFeJxnWFSM`
 
+<p align="center">
+  <kbd>
+    <picture>
+      <source media="" srcset="https://raw.githubusercontent.com/lighthouseitsecurity/weaponizedXSS/refs/heads/main/images/qr/qr_xss.png">
+      <img src="https://raw.githubusercontent.com/lighthouseitsecurity/weaponizedXSS/refs/heads/main/images/qr/qr_xss.png">
+    </picture>
+  </kbd>
+</p>
+
 <p align="justify">Received donations will also result with more frequent content updates.</p>
 
 Thanks!
