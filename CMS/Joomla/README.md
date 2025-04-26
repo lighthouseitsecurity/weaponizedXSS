@@ -26,8 +26,8 @@ As of 2025, Joomla holds a 2.1% market share for CMS-powered websites (1.5% of a
 ### Authenticated XSS (administrative privileges)
 
 * [ATO] Create New Admin User
+* [RCE] Install Module
 * [RCE] Patch File - template `error.php`
-* [RCE] Install Module 
 
 ### Unauthenticated XSS
 
