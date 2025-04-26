@@ -76,3 +76,7 @@
     </picture>
   </kbd>
 </p>
+
+## Video
+
+https://github.com/user-attachments/assets/416232be-16b4-4324-9321-d9c3058b9ff9
