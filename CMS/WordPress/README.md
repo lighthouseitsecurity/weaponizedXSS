@@ -8,11 +8,11 @@ As of 2025, WordPress holds a 61.3% market share for CMS-powered websites (43.5%
 
 ### Installed Software
 
-* WordPress 6.4.3
-* PHP 8.1.2
-* MySQL 8.0.35
-* Apache 2.4.52
-* Ubuntu 22.04.3 LTS
+* WordPress 6.8
+* PHP 8.3.6
+* MySQL 8.0.41
+* Apache 2.4.58
+* Ubuntu 24.04.2 LTS
 * **NOTE**: all default installations
 
 ### Vulnerable Page (`rxss.php`)
@@ -25,7 +25,7 @@ As of 2025, WordPress holds a 61.3% market share for CMS-powered websites (43.5%
 
 ### Authenticated XSS (administrative privileges)
 
-* [Acc] Create New Admin User
+* [ATO] Create New Admin User
 * [RCE] Patch File - theme `function.php`
 * [RCE] Install Plugin 
 
