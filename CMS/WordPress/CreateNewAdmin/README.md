@@ -55,4 +55,4 @@
 
 ## Video
 
-<video src="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/refs/heads/main/CMS/WordPress/CreateNewAdmin/screenshots/WordPress_-_create_new_admin_-_1-1.mp4"></video>
+https://github.com/user-attachments/assets/0e60144c-02c9-4e71-a1cf-1241a2990d3f
