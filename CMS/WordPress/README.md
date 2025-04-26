@@ -26,8 +26,8 @@ As of 2025, WordPress holds a 61.3% market share for CMS-powered websites (43.5%
 ### Authenticated XSS (administrative privileges)
 
 * [ATO] Create New Admin User
-* [RCE] Patch File - theme `function.php`
 * [RCE] Install Plugin 
+* [RCE] Patch File - theme `function.php`
 
 ### Unauthenticated XSS
 
