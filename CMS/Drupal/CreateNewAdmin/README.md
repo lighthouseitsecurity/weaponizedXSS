@@ -50,3 +50,7 @@
     </picture>
   </kbd>
 </p>
+
+## Video
+
+https://github.com/user-attachments/assets/f6c8aaa9-6cc4-42e4-a224-6bdf9d5be35e
