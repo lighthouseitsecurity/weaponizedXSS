@@ -52,3 +52,7 @@
     </picture>
   </kbd>
 </p>
+
+## Video
+
+<video src="https://github.com/lighthouseitsecurity/weaponizedXSS/raw/refs/heads/main/CMS/WordPress/CreateNewAdmin/screenshots/WordPress_-_create_new_admin_-_1-1.mp4"></video>
