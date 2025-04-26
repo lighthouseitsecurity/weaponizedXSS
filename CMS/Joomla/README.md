@@ -8,11 +8,11 @@ As of 2025, Joomla holds a 2.1% market share for CMS-powered websites (1.5% of a
 
 ### Installed Software
 
-* Joomla 5.0.2
-* PHP 8.2.12
-* MariaDB 10.11.6-2
+* Joomla 5.3.0
+* PHP 8.3.6
+* MariaDB 10.11.11
 * Apache 2.4.58
-* Ubuntu 24.04 LTS
+* Ubuntu 24.04.2 LTS
 * **NOTE**: all default installations
 
 ### Vulnerable Page (`rxss.php`)
@@ -25,7 +25,7 @@ As of 2025, Joomla holds a 2.1% market share for CMS-powered websites (1.5% of a
 
 ### Authenticated XSS (administrative privileges)
 
-* [Acc] Create New Admin User
+* [ATO] Create New Admin User
 * [RCE] Patch File - template `error.php`
 * [RCE] Install Module 
 
