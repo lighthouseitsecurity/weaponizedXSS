@@ -34,7 +34,7 @@
 
     * **NOTES**:
       * `192.168.5.19` - target Joomla site
-      * `192.168.5.5` - web server hosting payload
+      * `192.168.5.5` - web server hosting the payload
 
 5. [post exploit] attacker logs into target Joomla site using specified credentials
 
