@@ -32,7 +32,7 @@
 
     * **NOTES**:
       * `192.168.5.17` - target Drupal site
-      * `192.168.5.5` - web server hosting payload
+      * `192.168.5.5` - web server hosting the payload
 
 5. [post exploit] attacker logs into target Drupal site using specified credentials
 
