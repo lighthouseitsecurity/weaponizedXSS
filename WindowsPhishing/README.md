@@ -10,7 +10,7 @@ Typical use-case scenarios:
 
 The payload (`winph.js`) supports the following options:
 
-* no CSP bypass - issue AJAX request
+* no CSP bypass - issue AJAX request (i.e. client-side redirect)
 
   ```
   ...
@@ -18,7 +18,7 @@ The payload (`winph.js`) supports the following options:
   ...
   ```
 
-* CSP bypass - issue hard redirect (uses `redir.php`)
+* CSP bypass - issue hard redirect (uses `redir.php`; i.e. server-side redirect)
 
   ```
   ...
