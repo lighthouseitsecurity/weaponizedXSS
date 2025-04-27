@@ -67,7 +67,7 @@
 
     * **NOTES**:
       * `192.168.5.19` - target Joomla site
-      * `192.168.5.5` - web server hosting payload
+      * `192.168.5.5` - web server hosting the payload
 
 7. [post exploit] execute OS command
 
