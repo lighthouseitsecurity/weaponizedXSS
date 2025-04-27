@@ -8,7 +8,7 @@ Typical use-case scenarios:
 * internal network perspective (LAN)
   * Windows Active Directory environments (**NOTE**: no web application requirements)
 
-The payload (`winph.js`) supports options:
+The payload (`winph.js`) supports the following options:
 
 * no CSP bypass - issue AJAX request
 
