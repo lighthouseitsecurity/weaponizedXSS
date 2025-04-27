@@ -54,7 +54,7 @@
 
     * **NOTES**:
       * `192.168.5.10` - target WordPress site
-      * `192.168.5.5` - web server hosting payload
+      * `192.168.5.5` - web server hosting the payload
 
 6. [social engineering attack] victim user authenticates
 
