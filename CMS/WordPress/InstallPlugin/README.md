@@ -1,4 +1,4 @@
-# [RCE] Install Plugin
+# [authn] Install Plugin (RCE)
 
 ## Test Environment
 
