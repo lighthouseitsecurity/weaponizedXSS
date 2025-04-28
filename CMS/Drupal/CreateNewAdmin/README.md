@@ -1,4 +1,4 @@
-# [ATO] Create New Admin User
+# [authn] Create New Admin User (ATO)
 
 ## Test Environment
 
