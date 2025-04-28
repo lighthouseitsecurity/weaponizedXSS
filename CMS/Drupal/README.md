@@ -29,7 +29,7 @@ As of 2025 [[1](https://w3techs.com/technologies/details/cm-drupal), [2](https:/
 
 * [ATO] Create New Admin User
 * **NOTES**:
-  * as of versions 10.4 and 11, the file upload via URL functionality was removed from Drupal (i.e. "install module" attack vector not available) \[[1](https://www.drupal.org/project/drupal/issues/3417136)\]
+  * as of versions 10.4 and 11, the file upload via URL functionality was removed from Drupal (i.e. "install module" attack vector not available) \[[3](https://www.drupal.org/project/drupal/issues/3417136)\]
   * Drupal has no built-in PHP code editor installed (i.e. "patch file" attack vector not available)
     * alternatives do exist, but are configuration dependent (not documented here)
 
