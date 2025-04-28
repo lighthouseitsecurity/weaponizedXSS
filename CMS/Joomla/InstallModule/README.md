@@ -1,4 +1,4 @@
-# [RCE] Install Module
+# [authn] Install Module (RCE)
 
 ## Test Environment
 
