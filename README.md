@@ -40,7 +40,7 @@ Currently supported donation options:
   <kbd>
     <picture>
       <source media="" srcset="https://raw.githubusercontent.com/lighthouseitsecurity/weaponizedXSS/refs/heads/main/images/qr/qr_xss.png">
-      <img src="https://raw.githubusercontent.com/lighthouseitsecurity/weaponizedXSS/refs/heads/main/images/qr/qr_xss.png">
+      <img src="https://raw.githubusercontent.com/lighthouseitsecurity/weaponizedXSS/refs/heads/main/images/qr/qr_xss.png" height="250px" width="250px">
     </picture>
   </kbd>
 </p>
