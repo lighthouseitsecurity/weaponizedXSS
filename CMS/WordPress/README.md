@@ -2,7 +2,9 @@
 
 WordPress is a free and open-source CMS written in PHP.
 
-As of 2025, WordPress holds a 61.3% market share for CMS-powered websites (43.5% of all websites).
+As of 2025 [[1](https://w3techs.com/technologies/details/cm-wordpress), [2](https://whatcms.org/c/WordPress)], WordPress:
+* holds a **61.3% market share** for CMS-powered websites (43.5% of all websites)
+* runs on over **10,000,000 websites**
 
 ## Test Environment
 
