@@ -4,7 +4,7 @@ Joomla is a free and open-source CMS written in PHP.
 
 As of 2025 [[1](https://w3techs.com/technologies/details/cm-joomla), [2](https://whatcms.org/c/Joomla)], Joomla:
 * holds a **2.1% market share** for CMS-powered websites (1.5% of all websites)
-* used by over **870,000 websites**
+* is used by over **870,000 websites**
 
 ## Test Environment
 
