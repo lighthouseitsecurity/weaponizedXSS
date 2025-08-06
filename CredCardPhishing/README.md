@@ -6,7 +6,7 @@ Typical use-case scenarios:
 * external network perspective (Internet)
   * public web
   * web shop
-  * **NOTE**: if possible, leverage additional available functionality of the target web application to make the popup form appear (even) more convinving (e.g. using JavaScript, open the chat widget and display an appropriate phishing message to the victim user and display the form afterwards)
+  * **NOTE**: if possible, leverage additional available functionality of the target web application to make the popup form appear (even) more convincing (e.g. using JavaScript, open the chat widget and display an appropriate phishing message to the victim user and display the form afterwards)
 
 The payload (`ccphish.js`) supports the following options:
 
