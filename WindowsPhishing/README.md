@@ -14,7 +14,7 @@ The payload (`winph.js`) supports the following options:
 
   ```
   ...
-  const bypassCSP = false;
+  let bypassCSP = false;
   ...
   ```
 
@@ -22,7 +22,15 @@ The payload (`winph.js`) supports the following options:
 
   ```
   ...
-  const bypassCSP = true;
+  let bypassCSP = true;
+  ...
+  ```
+
+* run payload once - sets a cookie, once payload is executed; used to prevent further payload executions
+
+  ```
+  ...
+  let runOnce = true;
   ...
   ```
 
@@ -42,13 +50,11 @@ http://testphp.vulnweb.com/listproducts.php?cat=XSS_PAYLOAD_HERE
 
 1. [setup exploit] change payload variable values (`winph.js`; `redir.php`)
 
-    `scheme` - exfiltration web server scheme (http/https)
-
-    `attIP` - exfiltration web server IP address
-
-    `attPort` - exfiltration web server port
+    `attWsPhishPath` - exfiltration web server URL (i.e. scheme + FQDN + port + path; use trailing slash)
 
     `bypassCSP` - use/do not use CSP bypass (true/false)
+
+    `runOnce` - execute payload only once (true/false)
 
     `url` - exfiltration web server URL
 
