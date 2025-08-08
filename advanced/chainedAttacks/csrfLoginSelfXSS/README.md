@@ -87,6 +87,8 @@
     * CVSS-Confidentiality: MEDIUM/HIGH
     * CVSS-Integrity: MEDIUM/HIGH
 
+### Steps (High-level)
+
 1. attacker sets up malicious page (ref: *attacker's page*)
 
 2. log victim user into attacker's account (typically, login-CSRF victim user)
