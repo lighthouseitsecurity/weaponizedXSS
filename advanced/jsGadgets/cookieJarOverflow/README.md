@@ -11,8 +11,11 @@
 Typical use-case scenarios:
 * login-CSRF + self-XSS chained attacks
     * IMPACT:
-        * Sensitive Information Disclosure (CVSS-Confidentiality: MEDIUM/HIGH)
-        * ATO (CVSS-Integrity: MEDIUM/HIGH)
+        * Sensitive Information Disclosure
+            * CVSS-Confidentiality: MEDIUM/HIGH
+        * Account Take Over (ATO)
+            * CVSS-Confidentiality: MEDIUM/HIGH
+            * CVSS-Integrity: MEDIUM/HIGH
 * server-side JavaScript payload storage potential
     * idea: deny any user authenticated context
     * IMPACT: DoS (CVSS-Availability: MEDIUM/HIGH)
