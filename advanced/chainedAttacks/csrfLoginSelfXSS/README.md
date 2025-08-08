@@ -77,7 +77,7 @@
             * now, `window.open` will reference same window, opened initially (containing sensitive information)
         * only possible to leak information from referenced page
             * if any action performed on that page, it will be executed in context of attacker's user account
-                  * additionally, victim user account already logged out
+                * additionally, victim user account already logged out
 
 ## [ADVANCED] Account Take Over (ATO)
 
