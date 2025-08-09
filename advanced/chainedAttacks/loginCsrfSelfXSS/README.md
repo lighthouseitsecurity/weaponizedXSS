@@ -150,7 +150,7 @@
     ```
 
     * **NOTE**: idea is to clear all cookies that victim user account currently has in web browser (related to target web application)
-        * will log victim user' web browser out of attacker user account's session (i.e. lose authenticated context)
+        * will log victim user' web browser out of attacker user account's session (i.e. will lose authenticated context)
 
 5. setup self-XSS session cookie
 
