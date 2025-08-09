@@ -9,7 +9,7 @@
 
 ### Steps (High-level)
 
-1. gain victim user account context
+1. gain victim user account context in victim's web browser
 
     *(victim user logs into target web application)*
 
