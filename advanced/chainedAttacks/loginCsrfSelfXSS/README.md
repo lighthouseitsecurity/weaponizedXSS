@@ -33,7 +33,7 @@
         * page has victim user account context
             * all sensitive information rendered on client-side (in opened window, i.e. contained in DOM => now accessible by client-side JavaScript, locally)
 
-5. log victim user's web browser into attacker's user account (typically, login-CSRF victim user)
+5. log victim user's web browser into attacker's user account
 
     (**attacker's page** - continuation)
 
@@ -44,7 +44,8 @@
     ```
 
     * **NOTES**:
-        * alternatively, use any other method that logs victim user's web browser into attacker's user account (scenario-dependent)
+        * typically, login-CSRF victim user
+            * alternatively, use any other method that logs victim user's web browser into attacker's user account (scenario-dependent)
         * now, victim user's web browser is logged into attacker's user account (in that opened window)
             * possible to trigger self-XSS, due to attacker user account's context
 
