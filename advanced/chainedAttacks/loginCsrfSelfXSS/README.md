@@ -29,7 +29,7 @@
             * transaction history
             * generally, anything containing (a lot of) sensitive information
         * page has victim user account context
-            * all sensitive information rendered on client-side (in opened window; i.e. contained in DOM => now accessible by client-side JavaScript)
+            * all sensitive information rendered on client-side (in opened window, i.e. contained in DOM, locally => now accessible by client-side JavaScript)
 
 4. log victim user into attacker's user account (typically, login-CSRF victim user)
 
