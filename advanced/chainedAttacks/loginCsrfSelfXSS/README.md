@@ -172,7 +172,8 @@
                 * when issuing HTTP request, will get specified first (due to its higher priority) in `Cookie` header
         * server-side cookie interpretation
             * once HTTP request is received, server (usually) respects only first (unique) cookie it received (i.e. ignores any subsequent ones, received via `Cookie` header)
-        * now, victim user's web browser is logged out of target web application, apart from `/selfxsspage`, where it is logged into attacker user account's session (allows execution of payload, planted via self-XSS) 
+        * now, victim user's web browser is logged out of target web application, apart from `/selfxsspage`, where it is logged into attacker user account's session
+            * allows execution of payload, planted via self-XSS
             * also, the only remaining cookie in victim user web browser's cookie jar (i.e. no other ones, at this point)
 
 6. redirect victim user's web browser to another domain, to get off PoC page
