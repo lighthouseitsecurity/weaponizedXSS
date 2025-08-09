@@ -31,7 +31,7 @@
         * page has victim user account context
             * all sensitive information rendered on client-side (in opened window, i.e. contained in DOM, locally => now accessible by client-side JavaScript)
 
-4. log victim user into attacker's user account (typically, login-CSRF victim user)
+4. log victim user's web browser into attacker's user account (typically, login-CSRF victim user)
 
     (**attacker's page** - continuation)
 
