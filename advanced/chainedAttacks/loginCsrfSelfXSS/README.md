@@ -95,7 +95,7 @@
 
 1. attacker sets up malicious page (ref: *attacker's page*)
 
-2. log victim user's web browser into attacker's user account (typically, login-CSRF victim user)
+2. log victim user's web browser into attacker's user account
 
     (**attacker's page**)
 
@@ -105,7 +105,8 @@
     ```
 
     * **NOTES**:
-        * alternatively, use any other method that logs victim user's web browser into attacker's user account (scenario-dependent)
+        * typically, login-CSRF victim user's web browser
+            * alternatively, use any other method that logs victim user's web browser into attacker's user account (scenario-dependent)
         * compared to previous attack, prior to this step:
             * not required to log victim's user account in
             * not opening an additional window from attacker's page
