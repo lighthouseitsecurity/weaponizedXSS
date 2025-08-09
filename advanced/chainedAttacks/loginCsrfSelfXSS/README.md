@@ -123,7 +123,7 @@
             * plant second stage payload within attacker user account's session, which will remain active upon client-side logout
             * get victim user to log back into web application (i.e. obtain victim user account context)
 
-4. log victim user out of web application (to lose authenticated (attacker user account) context and indirectly force victim user to log in back again, using on credentials) - [cookie jar overflow](https://github.com/lighthouseitsecurity/weaponizedXSS/tree/main/advanced/jsGadgets/cookieJarOverflow)
+4. log victim user out of web application (to lose authenticated (attacker user account) context and indirectly force victim user to log in back again, using own credentials) - [cookie jar overflow](https://github.com/lighthouseitsecurity/weaponizedXSS/tree/main/advanced/jsGadgets/cookieJarOverflow)
 
     (**self-XSS payload**)
 
