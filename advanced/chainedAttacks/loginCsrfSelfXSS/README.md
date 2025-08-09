@@ -63,7 +63,7 @@
         * since initially opened window (from attacker's page), containing sensitive information, is in same origin as executed self-XSS payload, it is now accessible by self-XSS payload
             * according to Same Origin Policy (SOP), web browser does not differentiate between different user account contexts (victim user account's window vs. attacker user account's window - same to web browser)
 
-7. access victim user's account and exfiltrate sensitive data
+7. access and exfiltrate locally-stored sensitive data
 
     (**self-XSS payload**)
 
