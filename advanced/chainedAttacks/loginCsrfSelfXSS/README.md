@@ -82,7 +82,7 @@
 
 ## [ADVANCED] Account Take Over (ATO)
 
-<p align="justify">The overall idea is to log in victim user to attacker's user account, but only to the page with self-XSS (i.e. all remaning pages of the web application have victim user account context). This allows to execute the self-XSS payload in the attacker user account's context, while interacting with all (interesting) functionality in the victim user account's context.</p>
+<p align="justify">The overall idea is to log in victim user to attacker's user account, but only to the page with self-XSS (i.e. all remaning pages of the web application retaining victim user account context). This allows to execute the self-XSS payload in the attacker user account's context, while interacting with all (interesting) functionality in the victim user account's context.</p>
 
 * IMPACT:
     * CVSS-Confidentiality: MEDIUM/HIGH
@@ -92,7 +92,7 @@
 
 1. attacker sets up malicious page (ref: *attacker's page*)
 
-2. log victim user into attacker's account (typically, login-CSRF victim user)
+2. log victim user's web browser into attacker's user account (typically, login-CSRF victim user)
 
     (**attacker's page**)
 
@@ -102,9 +102,9 @@
     ```
 
     * **NOTES**:
-        * alternatively, use any other method that logs victim user into attacker's account (scenario-dependent)
+        * alternatively, use any other method that logs victim user into attacker's user account (scenario-dependent)
         * compared to previous attack, prior to this step:
-            * not required to log victim user in
+            * not required to log victim's user account in
             * not opening an additional window from attacker's page
 
 3. trigger self-XSS
@@ -118,12 +118,12 @@
     ```
 
     * **NOTES**:
-        * at this point, within victim user's web browser, achieved JavaScript code execution in context of attacker's user account
+        * at this point, within victim user's web browser, gained JavaScript code execution in context of attacker's user account
         * next:
-            * plant second stage payload within attacker's session, which will remain active upon logout
+            * plant second stage payload within attacker user account's session, which will remain active upon client-side logout
             * get victim user to log back into web application (i.e. obtain victim user account context)
 
-4. log victim user out of web application (to indirectly force victim user to log in back again) - [cookie jar overflow](https://github.com/lighthouseitsecurity/weaponizedXSS/tree/main/advanced/jsGadgets/cookieJarOverflow)
+4. log victim user out of web application (to lose authenticated (attacker user account) context and indirectly force victim user to log in back again, using on credentials) - [cookie jar overflow](https://github.com/lighthouseitsecurity/weaponizedXSS/tree/main/advanced/jsGadgets/cookieJarOverflow)
 
     (**self-XSS payload**)
 
@@ -145,8 +145,8 @@
     ...
     ```
 
-    * **NOTE**: idea is to clear all cookies that victim user account currently has in web browser
-        * will log victim user' web browser out of attacker user account's session
+    * **NOTE**: idea is to clear all cookies that victim user account currently has in web browser (related to target web application)
+        * will log victim user' web browser out of attacker user account's session (i.e. lose authenticated context)
 
 5. setup self-XSS session cookie
 
@@ -161,15 +161,15 @@
 
     * **NOTES**:
         * self-XSS payload execution
-            * set session cookie (in victim user's web browser) to attacker user account's session and specify its path to self-XSS endpoint
-                * now, this cookie will only get sent to server if web browser navigating to that specific endpoint/path
+            * set session cookie (in victim user's web browser) to attacker user account's session and specify its path attribute to self-XSS endpoint
+                * now, this cookie will only get sent to server-side if web browser navigating to that specific endpoint/path
         * cookie precedence
             * cookie with more specific path takes precedence over more general one (e.g. `/selfxsspage` takes precedence over `/`)
                 * when issuing HTTP request, will get specified first (due to its higher priority) in `Cookie` header
         * server-side cookie interpretation
             * once HTTP request is received, server (usually) respects only first (unique) cookie it received (i.e. ignores any subsequent ones, received via `Cookie` header)
-        * now, victim user is logged out of target web application, apart from `/selfxsspage`, where it is logged into attacker user account's session (allows execution of payload, planted via self-XSS)
-            * also, only remaining cookie in victim user web browser's cookie jar (i.e. no other ones, at this point)
+        * now, victim user's web browser is logged out of target web application, apart from `/selfxsspage`, where it is logged into attacker user account's session (allows execution of payload, planted via self-XSS) 
+            * also, the only remaining cookie in victim user web browser's cookie jar (i.e. no other ones, at this point)
 
 6. redirect victim user's web browser to another domain, to get off PoC page
 
@@ -186,10 +186,10 @@
     *(victim user logs into target web application, using victim user account)*
 
     * **NOTES**:
-        * requires victim user interaction
-        * once logged in, victim user's web browser logged into every endpoint as victim user account, except self-XSS endpoint, where it has attacker user account context
-            * once victim user navigates to self-XSS endpoint, attacker-planted cookie will take precedence over victim user account's one (since it is scoped to whole app, i.e. its path is '/')
-                * now, possible to exploit web application, since rest of application is in victim user account's context
+        * requires victim user interaction (i.e. CVSS-User Interaction: Required)
+        * once logged in, victim user's web browser has victim user account context on every endpoint, except self-XSS endpoint, where it has attacker user account context
+            * once victim user navigates to self-XSS endpoint, attacker-planted cookie will take precedence over victim user account's one (since it is scoped to whole app, i.e. its path is `/`)
+                * now, possible to exploit web application, since rest of application is in victim user account's context (i.e. self-XSS, effectively, turned into regular XSS)
 
 8. victim user navigates to self-XSS page
 
@@ -197,12 +197,12 @@
 
     * **NOTES**:
         * ideally, self-XSS located in profile page or somewhere where user is likely to navigate to
-            * main page / home page / dashboard
-            * any page that gets visited often / all the time
-        * in case self-XSS page is NOT easily navigated to, use other technique(s) to make user navigate to it
+            * e.g. main page; home page; dashboard
+            * any page that gets visited all the time / often
+        * in case self-XSS page is NOT easily navigated to, use other technique(s) to make user navigate to it automatically
             * e.g. hunt for cookies that perform post-login redirect
-                * avoids user interaction requirement
-                * again, for redirect cookie use specific path, to take precedence over other victim user account's cookies
+                * avoids additional user interaction requirement (i.e. avoids lowering of overall impact)
+                * again, for redirect cookie use specific path, to take precedence over victim user account's one
 
 ## References
 
