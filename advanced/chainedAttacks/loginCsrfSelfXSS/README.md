@@ -85,7 +85,7 @@
 
 ## [ADVANCED] Account Take Over (ATO)
 
-<p align="justify">The overall idea is to log in victim user to attacker's user account, but only to the page with self-XSS (i.e. all remaning pages of the web application retaining victim user account context). This allows to execute the self-XSS payload in the attacker user account's context, while interacting with all (interesting) functionality in the victim user account's context.</p>
+<p align="justify">The overall idea is to log in victim user's web browser to attacker's user account, but only to the page with self-XSS (i.e. all remaning pages of the web application retaining victim user account context). This allows to execute the self-XSS payload in the attacker user account's context, while interacting with all (interesting) functionality in the victim user account's context.</p>
 
 * IMPACT:
     * CVSS-Confidentiality: MEDIUM/HIGH
