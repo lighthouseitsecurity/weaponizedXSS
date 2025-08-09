@@ -102,7 +102,7 @@
     ```
 
     * **NOTES**:
-        * alternatively, use any other method that logs victim user into attacker's user account (scenario-dependent)
+        * alternatively, use any other method that logs victim user's web browser into attacker's user account (scenario-dependent)
         * compared to previous attack, prior to this step:
             * not required to log victim's user account in
             * not opening an additional window from attacker's page
