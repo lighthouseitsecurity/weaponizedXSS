@@ -44,7 +44,7 @@
     ```
 
     * **NOTES**:
-        * typically, login-CSRF victim user
+        * typically, login-CSRF victim user's web browser
             * alternatively, use any other method that logs victim user's web browser into attacker's user account (scenario-dependent)
         * now, victim user's web browser is logged into attacker's user account (in that opened window)
             * possible to trigger self-XSS, due to attacker user account's context
