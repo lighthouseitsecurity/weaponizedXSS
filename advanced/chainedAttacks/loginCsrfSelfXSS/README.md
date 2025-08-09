@@ -9,7 +9,7 @@
 
 ### Steps (High-level)
 
-1. victim user logs into target web application
+1. victim user logs into target web application using own credentials
 
 2. attacker sets up malicious page (ref: *attacker's page*)
 
