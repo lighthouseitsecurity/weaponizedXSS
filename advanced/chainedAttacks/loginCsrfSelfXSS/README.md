@@ -9,11 +9,13 @@
 
 ### Steps (High-level)
 
-1. victim user logs into target web application (gain victim user account context)
+1. gain victim user account context
 
-2. attacker sets up malicious page (ref: *attacker's page*)
+    *(victim user logs into target web application)*
 
-3. from attacker's page, open page on target web application
+3. attacker sets up malicious page (ref: *attacker's page*)
+
+4. from attacker's page, open page on target web application
 
     (**attacker's page**)
 
@@ -31,7 +33,7 @@
         * page has victim user account context
             * all sensitive information rendered on client-side (in opened window, i.e. contained in DOM, locally => now accessible by client-side JavaScript)
 
-4. log victim user's web browser into attacker's user account (typically, login-CSRF victim user)
+5. log victim user's web browser into attacker's user account (typically, login-CSRF victim user)
 
     (**attacker's page** - continuation)
 
@@ -46,7 +48,7 @@
         * now, victim user's web browser is logged into attacker's user account (in that opened window)
             * possible to trigger self-XSS, due to attacker user account's context
 
-5. trigger self-XSS
+6. trigger self-XSS
 
     (**attacker's page** - continuation)
 
@@ -60,7 +62,7 @@
         * since initially opened window (from attacker's page), containing sensitive information, is in same origin as executed self-XSS payload, it is now accessible by self-XSS payload
             * according to Same Origin Policy (SOP), web browser does not differentiate between different user account contexts (victim user account's window vs. attacker user account's window - same to web browser)
 
-6. access victim user's account and exfiltrate sensitive data
+7. access victim user's account and exfiltrate sensitive data
 
     (**self-XSS payload**)
 
