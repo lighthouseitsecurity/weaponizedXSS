@@ -12,7 +12,7 @@
     * depending on the scenario, one may work over another
         * overall, in most scenarios, at least one of them works
             * if not, explore available options for "saying the same in a different way" (i.e. adapt to target environment)
-    * list may be updated with additional encoding variants
+    * list may be updated with additional different variants
 
 ## `simpleStd.js` - round brackets; quote; space; backslash
 
