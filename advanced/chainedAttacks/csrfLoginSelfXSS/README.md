@@ -1,5 +1,5 @@
 
-# CSRF Login + Self-XSS
+# Login CSRF + Self-XSS
 
 * **NOTE**: initial version, based on referenced material (errors may be present)
 
@@ -27,11 +27,11 @@
             * profile settings
             * API key
             * transaction history
-            * generally, anything containing a lot of sensitive information
-        * page has victim user context
-            * all sensitive information rendered on client-side (in opened window)
+            * generally, anything containing (a lot of) sensitive information
+        * page has victim user account context
+            * all sensitive information rendered on client-side (in opened window; i.e. contained in DOM => now accessible by client-side JavaScript)
 
-4. log victim user into attacker's account (typically, login-CSRF victim user)
+4. log victim user into attacker's user account (typically, login-CSRF victim user)
 
     (**attacker's page** - continuation)
 
@@ -42,8 +42,8 @@
     ```
 
     * **NOTES**:
-        * alternatively, use any other method that logs victim user into attacker's account (scenario-dependent)
-        * now, victim user is logged into attacker's account (in that opened window)
+        * alternatively, use any other method that logs victim user's web browser into attacker's user account (scenario-dependent)
+        * now, victim user's web browser is logged into attacker's user account (in that opened window)
             * possible to trigger self-XSS, due to attacker user account's context
 
 5. trigger self-XSS
@@ -56,8 +56,8 @@
     ...
     ```
 
-    * **NOTE**: now, executed JavaScript code is running in origin of web application on victim's web browser
-        * since initially opened window (from attacker's page), containing sensitive information, is in same origin as executed self-XSS payload, it can access it
+    * **NOTE**: now, executed JavaScript self-XSS payload is running in origin of web application on victim user's web browser
+        * since initially opened window (from attacker's page), containing sensitive information, is in same origin as executed self-XSS payload, it is now accessible by self-XSS payload
             * according to Same Origin Policy (SOP), web browser does not differentiate between different user account contexts (victim user account's window vs. attacker user account's window - same to web browser)
 
 6. access victim user's account and exfiltrate sensitive data
@@ -78,6 +78,7 @@
         * only possible to leak information from referenced page
             * if any action performed on that page, it will be executed in context of attacker's user account
                 * additionally, victim user account already logged out
+            * issue addressed and solved in next attack chain
 
 ## [ADVANCED] Account Take Over (ATO)
 
