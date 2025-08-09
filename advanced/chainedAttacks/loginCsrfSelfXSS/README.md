@@ -49,7 +49,7 @@
         * now, victim user's web browser is logged into attacker's user account (in that opened window)
             * possible to trigger self-XSS, due to attacker user account's context
 
-6. trigger self-XSS
+6. trigger self-XSS payload
 
     (**attacker's page** - continuation)
 
@@ -110,7 +110,7 @@
             * not required to log victim's user account in
             * not opening an additional window from attacker's page
 
-3. trigger self-XSS
+3. trigger self-XSS payload
 
     (**attacker's page** - continuation)
 
