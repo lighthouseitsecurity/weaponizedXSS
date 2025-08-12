@@ -1,6 +1,6 @@
 # [unauthn] Credit Card Update Form (Phish)
 
-<p align="justify">This payload adds HTML code as an overlay to the target web page (containing the XSS vulnerability). The code displays a Credit Card Update popup form. If blended in the application's context sufficiently, once they encounter such a prompt, most users have a (proven) tendency to blindly provide it requested information (which contributes to a higher success rate of such phishing attacks).<p>
+<p align="justify">This payload adds HTML code as an overlay to the target web page (containing the XSS vulnerability). The code displays a Credit Card Update popup form. If blended in the application's context sufficiently, once they encounter such a prompt, most users have a (proven) tendency to blindly provide it requested information (which contributes to a higher success rate of such phishing attacks).</p>
 
 Typical use-case scenarios:
 * external network perspective (Internet)
