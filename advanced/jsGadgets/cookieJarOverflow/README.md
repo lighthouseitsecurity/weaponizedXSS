@@ -2,7 +2,7 @@
 
 <p align="justify">This payload terminates the current session with the web application, on the client-side (i.e. logs out the victim user account from the web application).</p>
 
-<p align="justify">This is achieved by filling the web browser's cookie jar with a large number of fake cookies. When their number is greater than the limit of the cookie jar (typically, around 300), the web browser will start to overwrite any existing (legitimate) cookies in the cookie jar with these newly created ones. Once this occurs, the cookie jar is filled only with such fake (but valid) cookies.</p>
+<p align="justify">This is achieved by filling the web browser's cookie jar with a large number of junk cookies. When their number is greater than the limit of the cookie jar (typically, around 300), the web browser will start to overwrite any existing (legitimate) cookies in the cookie jar with these newly created ones. Once this occurs, the cookie jar is filled only with such junk (but valid) cookies.</p>
 
 <p align="justify">In order to completely clear the cookie jar, the next step is to remove them. This is done by assigning each of them an expiry date with a value in the past. The web browser treats all such cookies as invalid and removes them from the cookie jar. Since it contained only expired cookies, the result of this is an empty cookie jar. From this point onwards, it is possible to create new cookies, as required.</p>
 
