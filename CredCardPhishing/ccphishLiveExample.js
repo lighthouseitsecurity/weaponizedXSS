@@ -85,7 +85,7 @@ const phishHtml = `
     transition: all 0.5s ease-out;
   }
   .ccupdate:target .dialog {
-    top: 70px;
+    top: 10px;
     -moz-transition: all 0.8s ease-out;
     -webkit-transition: all 0.8s ease-out;
     -o-transition: all 0.8s ease-out;
