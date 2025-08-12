@@ -3,7 +3,7 @@
 
 * **NOTE**: initial version, based on referenced material (errors may be present)
 
-## [BASIC] Sensitive Information Disclosure 
+## #1: Sensitive Information Disclosure
 
 * IMPACT: CVSS-Confidentiality: MEDIUM/HIGH
 
@@ -83,7 +83,7 @@
                 * additionally, victim user account already logged out
             * issue addressed and solved in next attack chain
 
-## [ADVANCED] Account Take Over (ATO)
+## #2: Account Take Over (ATO)
 
 <p align="justify">The overall idea is to log in victim user's web browser to attacker's user account, but only to the page with self-XSS, while retaining victim user account context on all remaning pages of the web application. This allows to execute the self-XSS payload in the attacker user account's context, while interacting with all (interesting) functionality in the victim user account's context.</p>
 
