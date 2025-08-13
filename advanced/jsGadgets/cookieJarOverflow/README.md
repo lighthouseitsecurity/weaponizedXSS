@@ -1,6 +1,6 @@
 # [authn] Cookie Jar Overflow
 
-<p align="justify">This payload terminates the current session with the web application, on the client-side (i.e. logs out the victim user account from the web application).</p>
+<p align="justify">This payload terminates the current session with the web application, on the client-side (i.e. effectively, logs out the victim's user account from the web application).</p>
 
 <p align="justify">This is achieved by filling the web browser's cookie jar with a large number of junk cookies. When their number is greater than the limit of the cookie jar (typically, around 300), the web browser will start to overwrite any existing (legitimate) cookies in the cookie jar with these newly created ones. Once this occurs, the cookie jar is filled only with such junk (but valid) cookies.</p>
 
