@@ -2,15 +2,15 @@
 
 <p align="justify">This payload adds HTML code as an overlay to the target web page (containing the XSS vulnerability). The code displays the dreaded Windows Authentication prompt popup window. The overlay creates the illusion that the operating system spawned the prompt. Once they encounter such an authentication prompt, most users have a (proven) tendency to blindly provide it credentials (which contributes to a higher success rate of such phishing attacks).</p>
 
-Typical use-case scenarios:
+Typical use case scenarios:
 * external network perspective (Internet)
-  * public web application which uses Windows Authentication (e.g. Outlook Web Access) without 2FA
+  * public web application which uses Windows Authentication (e.g. Outlook Web Access) without 2FA/MFA
 * internal network perspective (LAN)
   * Windows Active Directory environments (**NOTE**: no web application requirements)
 
 The payload (`winph.js`) supports the following options:
 
-* no CSP bypass - issue AJAX request (i.e. client-side redirect)
+* no CSP bypass - issue AJAX request (i.e. perform client-side redirect for data exfiltration)
 
   ```
   ...
@@ -18,7 +18,7 @@ The payload (`winph.js`) supports the following options:
   ...
   ```
 
-* CSP bypass - issue hard redirect (uses `redir.php`; i.e. server-side redirect)
+* CSP bypass - issue hard redirect (uses `redir.php`; i.e. perform server-side redirect for data exfiltration)
 
   ```
   ...
@@ -26,7 +26,7 @@ The payload (`winph.js`) supports the following options:
   ...
   ```
 
-* run payload once - sets a cookie, once payload is executed; used to prevent further payload executions
+* run payload once - sets a cookie, once payload is executed; used to prevent further payload executions (i.e. popup appears only once)
 
   ```
   ...
