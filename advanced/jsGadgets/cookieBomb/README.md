@@ -1,12 +1,12 @@
 # [unauthn/authn] Cookie Bomb
 
-<p align="justify">This payload denies access to a website or any part(s) of it, on the client-side (i.e. causes a full/partial client-side Denial-of-Service (DoS) condition).</p>
+<p align="justify">This payload denies access to a website or any part(s) of it, on the client side (i.e. causes a full/partial client-side Denial-of-Service (DoS) condition).</p>
 
-<p align="justify">This is achieved by creating multiple junk cookies on the client-side with very long values (each below cookie size limit - around 4KB). Once the web browser issues an HTTP request to the affected website/endpoint, along with these cookies, the web server rejects it and responds with the <code>431 Request Header Fields Too Large</code> HTTP status code. Effectively, this denies the web browser access to the requested resource (i.e. causes a DoS condition; client-side only).</p>
+<p align="justify">This is achieved by creating multiple junk cookies on the client side with very long values (each below cookie size limit - around 4KB). Once the web browser issues an HTTP request to the affected website/endpoint, along with these cookies, the web server rejects it and responds with the <code>431 Request Header Fields Too Large</code> HTTP status code. Effectively, this denies the web browser access to the requested resource (i.e. causes a DoS condition; client-side only).</p>
 
-<p align="justify">The DoS condition persists as long as the junk cookies are stored on the client-side. Once the web browser's cache is cleared, the affected resource is accessible again from the client-side.</p>
+<p align="justify">The DoS condition persists as long as the junk cookies are stored on the client side. Once the web browser's cache is cleared, the affected resource is accessible again from the client side.</p>
 
-Typical use-case scenarios:
+Typical use case scenarios:
 * OAuth flow hijacking
     * idea: [leverage OAuth login to obtain OAuth token](https://medium.com/@danielbelay/day-7-drag-drop-xss-cookie-bomb-for-oauth-hijacking-a9b828cd9c54)
     * IMPACT:
