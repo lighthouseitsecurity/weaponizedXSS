@@ -2,7 +2,7 @@
 
 <p align="justify">This payload adds HTML code as an overlay to the target web page (containing the XSS vulnerability). The code displays a Credit Card Update popup form. If blended in the application's context sufficiently, once they encounter such a prompt, most users have a (proven) tendency to blindly provide it requested information (which contributes to a higher success rate of such phishing attacks).</p>
 
-Typical use-case scenarios:
+Typical use case scenarios:
 * external network perspective (Internet)
   * B2C website
     * web shop
@@ -12,7 +12,7 @@ Typical use-case scenarios:
 
 The payload (`ccphish.js`) supports the following options:
 
-* no CSP bypass - issue AJAX request (i.e. client-side redirect)
+* no CSP bypass - issue AJAX request (i.e. perform client-side redirect for data exfiltration)
 
   ```
   ...
@@ -20,7 +20,7 @@ The payload (`ccphish.js`) supports the following options:
   ...
   ```
 
-* CSP bypass - issue hard redirect (uses `redir.php`; i.e. server-side redirect)
+* CSP bypass - issue hard redirect (uses `redir.php`; i.e. perform server-side redirect for data exfiltration)
 
   ```
   ...
@@ -28,7 +28,7 @@ The payload (`ccphish.js`) supports the following options:
   ...
   ```
 
-* run payload once - sets a cookie, once payload is executed; used to prevent further payload executions
+* run payload once - sets a cookie, once payload is executed; used to prevent further payload executions (i.e. popup appears only once)
 
   ```
   ...
@@ -59,7 +59,7 @@ http://testphp.vulnweb.com/listproducts.php?cat=XSS_PAYLOAD_HERE
 1. [setup exploit] adapt to target environment
 
     * change logo (image + displayed dimensions)
-    * modify CSS (scenario-dependent)
+    * modify CSS (scenario dependent)
 
 3. [setup exploit] change payload variable values (`ccphish.js`; `redir.php`)
 
