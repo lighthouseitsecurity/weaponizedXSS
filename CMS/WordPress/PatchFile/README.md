@@ -50,7 +50,7 @@
 
 7. [restore file] restore file via GUI
 
-    *WordPress -> Tools -> Theme File Editor -> Select theme to edit - (select target theme from droplist) -> Select -> Theme Functions (functions.php) -> (remove backdoor) -> Update File*
+    *WordPress ➔ Tools ➔ Theme File Editor ➔ Select theme to edit - (select target theme from droplist) -> Select ➔ Theme Functions (functions.php) ➔ (remove backdoor) ➔ Update File*
 
 ## Screenshot
 
