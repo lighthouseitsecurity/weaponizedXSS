@@ -31,7 +31,7 @@
             * transaction history
             * generally, anything containing (a lot of) sensitive information
         * page has victim user account context
-            * all sensitive information rendered on client-side (in opened window, i.e. contained in DOM => now accessible by client-side JavaScript, locally)
+            * all sensitive information rendered on client side (in opened window, i.e. sensitive information now contained in DOM of victim user's web browser => now accessible by client-side JavaScript, locally)
 
 5. log victim user's web browser into attacker's user account
 
@@ -45,7 +45,7 @@
 
     * **NOTES**:
         * typically, login-CSRF victim user's web browser
-            * alternatively, use any other method that logs victim user's web browser into attacker's user account (scenario-dependent)
+            * alternatively, use any other method that logs victim user's web browser into attacker's user account (scenario dependent)
         * now, victim user's web browser is logged into attacker's user account (in that opened window)
             * possible to trigger self-XSS, due to attacker user account's context
 
@@ -60,7 +60,7 @@
     ```
 
     * **NOTE**: now, executed JavaScript self-XSS payload is running in origin of web application on victim user's web browser
-        * since initially opened window (from attacker's page), containing sensitive information, is in same origin as executed self-XSS payload, it is now accessible by self-XSS payload
+        * since initially opened window (from attacker's page), already containing sensitive information in DOM, is in same origin as executed self-XSS payload, it is now accessible by self-XSS payload
             * according to Same Origin Policy (SOP), web browser does not differentiate between different user account contexts (victim user account's window vs. attacker user account's window - same to web browser)
 
 7. access and exfiltrate locally-stored sensitive data
@@ -78,8 +78,8 @@
                 * first argument = empty string (i.e. empty URL)
                 * second argument = provide specified name reference
             * now, `window.open` will reference same window, opened initially (containing sensitive information)
-        * only possible to leak information from referenced page
-            * if any action performed on that page, it will be executed in context of attacker's user account
+        * only possible to leak information from referenced page (since its contents are already loaded)
+            * if any action performed on that page, it will be executed in context of attacker's user account (i.e. can not access any resource in victim user account's context, since victim user account context required)
                 * additionally, victim user account already logged out
             * issue addressed and solved in next attack chain
 
@@ -106,7 +106,7 @@
 
     * **NOTES**:
         * typically, login-CSRF victim user's web browser
-            * alternatively, use any other method that logs victim user's web browser into attacker's user account (scenario-dependent)
+            * alternatively, use any other method that logs victim user's web browser into attacker's user account (scenario dependent)
         * compared to previous attack, prior to this step:
             * not required to log victim's user account in
             * not opening an additional window from attacker's page
@@ -123,9 +123,7 @@
 
     * **NOTES**:
         * at this point, within victim user's web browser, gained JavaScript code execution in context of attacker's user account
-        * next:
-            * plant second stage payload within attacker user account's session, which will remain active upon client-side logout
-            * get victim user to log back into web application (i.e. obtain victim user account context)
+        * next step is to obtain victim user account context (i.e. get victim user to log back into web application)
 
 4. log victim user out of web application (to lose authenticated (attacker user account) context and indirectly force victim user to log in back again, using own credentials) - [cookie jar overflow](https://github.com/lighthouseitsecurity/weaponizedXSS/tree/main/advanced/jsGadgets/cookieJarOverflow)
 
@@ -164,16 +162,17 @@
     ```
 
     * **NOTES**:
-        * self-XSS payload execution
+        * continuation of first stage self-XSS payload execution
+            * cookie jar currently empty
             * set session cookie (in victim user's web browser) to attacker user account's session and specify its path attribute to self-XSS endpoint
-                * now, this cookie will only get sent to server-side if web browser navigating to that specific endpoint/path
+                * now, this cookie will only get sent to server side if web browser navigating to that specific endpoint/path
         * cookie precedence
             * cookie with more specific path takes precedence over more general one (e.g. `/selfxsspage` takes precedence over `/`)
                 * when issuing HTTP request, will get specified first (due to its higher priority) in `Cookie` header
         * server-side cookie interpretation
             * once HTTP request is received, server (usually) respects only first (unique) cookie it received (i.e. ignores any subsequent ones, received via `Cookie` header)
         * now, victim user's web browser is logged out of target web application, apart from `/selfxsspage`, where it is logged into attacker user account's session
-            * allows execution of payload, planted via self-XSS
+            * allows execution of stage stage payload, planted via self-XSS
             * also, the only remaining cookie in victim user web browser's cookie jar (i.e. no other ones, at this point)
 
 6. redirect victim user's web browser to another domain, to get off PoC page
@@ -193,8 +192,6 @@
     * **NOTES**:
         * requires victim user interaction (i.e. CVSS-User Interaction: Required)
         * once logged in, victim user's web browser has victim user account context on every endpoint, except self-XSS endpoint, where it has attacker user account context
-            * once victim user navigates to self-XSS endpoint, attacker-planted cookie will take precedence over victim user account's one (since it is scoped to whole app, i.e. its path is `/`)
-                * now, possible to exploit web application, since rest of application is in victim user account's context (i.e. self-XSS, effectively, turned into regular XSS)
 
 8. victim user navigates to self-XSS page
 
@@ -206,8 +203,10 @@
             * any page that gets visited all the time / often
         * in case self-XSS page is NOT easily navigated to, use other technique(s) to make user navigate to it automatically
             * e.g. hunt for cookies that perform post-login redirect
-                * avoids additional user interaction requirement (i.e. avoids lowering of overall impact)
-                * again, for redirect cookie use specific path, to take precedence over victim user account's one
+                * avoids additional user interaction requirement (i.e. avoids additional lowering of overall impact)
+                * again, for redirect cookie use specific path, to take precedence over victim user account's one upon login
+        * once victim user navigates to self-XSS endpoint, attacker-planted cookie will take precedence over victim user account's one (since it is scoped to whole app, i.e. its path is `/`)
+            * now, possible to exploit web application, since rest of application is in victim user account's context (i.e. self-XSS, effectively, turned into regular XSS)
 
 ## References
 
