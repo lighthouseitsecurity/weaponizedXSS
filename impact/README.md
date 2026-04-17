@@ -1,18 +1,19 @@
 <p align="justify">This chapter documents the <b>technical impact</b> of an XSS vulnerability (<b>NOTE</b>: different from business impact).</p>
 
-<p align="justify">Some time ago i remember discussing this topic with colleagues and i was consistently encountering the same answer to the question <b>"What can you (actually) do with XSS?"</b>.<br>
+<p align="justify">I remember discussing this topic with colleagues some time ago and i was consistently encountering the same answer to the question <b>"What can you (actually) do with XSS?"</b>.<br>
 The answer was always somewhere along "<i>well... (preparing to instantly provide an obvious list to this (deceptively) simple question) ... (thinking) ... (thinking some more) ... (realizing that the answer to the question is actually not that simple) ... (dramatic pause) ... (what kind of (dumb) question is that, kind of reaction) ... (obviously annoyed by the question) ...<b>ANYTHING!!1!</b></i>". :)<br>
-The point being here is that everyone (including myself) was generally aware of the power of XSS but, surprisingly, noone was able to provide a comprehensive list of most/all concrete actions that were possible to achieve via XSS. Always bits and pieces, but never the whole mosaic.</p>
+The point being here is that everyone (including myself) was generally aware of the potential of XSS but, surprisingly, was not able to provide a comprehensive list of most/all concrete actions/attack vectors that were possible to achieve via XSS.<br>
+Always bits and pieces, but never the whole mosaic.</p>
 
 <p align="justify">Since no online resource, i was aware of, provided such a list, i decided to make one.</p>
 
 <p align="justify">The list has evolved over the years and was updated and revised on multiple occassions.
-Some categories overlap and can be rearranged differently (this one makes most sense to me).
-It is (and will be) work in progres.
+Some categories overlap and can be rearranged differently (this one makes most sense to me, from a practical standpoint).
+It is (and will be) work in progress.<br>
 In other words, it is not perfect, but provides a good general overview of what can be done with XSS.</p>
 
 <p align="justify">Note that the list covers general options, some of which may be relevant (and some not), depending on the tested web application (i.e. scenario dependent).<br>
-Also, it should not be followed blindly - put the focus on understanding the target environment, analyzing all of its functionalities and adapting to it, according to the client's threat model/priorities.</p>
+Also, it should not be followed blindly. Instead, focus should be put on understanding the target environment, analyzing all of its functionalities and adapting to it, according to the client's threat model/priorities.</p>
 
 <p align="justify">Overall, i find the list to be a good starting point when mentally fatigued (often the case after finding a bug and having to demonstrate impact straight afterwards) or when just out of ideas.</p>
 
