@@ -2,8 +2,7 @@
 
 <p align="justify">I remember discussing this topic with colleagues some time ago and i was consistently encountering the same answer to the question <b>"What can you (actually) do with XSS?"</b>.<br>
 The answer was always somewhere along "<i>well... (preparing to instantly provide an obvious list to this (deceptively) simple question) ... (thinking) ... (thinking some more) ... (realizing that the answer to the question is actually not that simple) ... (dramatic pause) ... (what kind of (dumb) question is that, kind of reaction) ... (obviously annoyed by the question) ...<b>ANYTHING!!1!</b></i>". :)<br>
-The point being here is that everyone (including myself) was generally aware of the potential of XSS but, surprisingly, was not able to provide a comprehensive list of most/all concrete actions/attack vectors that were possible to achieve via XSS.<br>
-Always bits and pieces, but never the whole mosaic.</p>
+The point being here is that everyone (including myself) was generally aware of the potential of XSS but, surprisingly, was not able to provide a comprehensive list of most/all concrete actions/attack vectors that were possible to achieve via XSS. Bits and pieces at best, but never the whole mosaic.</p>
 
 <p align="justify">Since no online resource, i was aware of, provided such a list, i decided to make one.</p>
 
