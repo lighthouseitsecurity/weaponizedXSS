@@ -6,7 +6,7 @@ The point being here is that everyone (including myself) was generally aware of 
 
 <p align="justify">Since no online resource, i was aware of, provided such a list, i decided to make one.</p>
 
-<p align="justify">The list has evolved over the years and was updated and revised on multiple occassions.
+<p align="justify">The list has evolved over the years and was revised and updated on multiple occassions.
 Some categories overlap and can be rearranged differently (this one makes most sense to me, from a practical standpoint).
 It is (and will be) work in progress.<br>
 In other words, it is not perfect, but provides a good general overview of what can be done with XSS.</p>
