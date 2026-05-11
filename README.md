@@ -27,24 +27,3 @@
 * [**iframe login**] set directive for `X-Frame-Options` to `DENY` [1] for all affected login pages
 
 [1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
-
-## Donations
-
-<p align="justify">The content available on this page is free of charge. In case you found any information documented here helpful and/or learned something new and/or it saved time or you just want to support this initiative, please consider donating.</p>
-
-Currently supported donation options:
-
-* Monero [XMR] - `86yQrfxwFjmXj75GzVts5XDAct7RZ177JVco6e1VoW7jGCoK1FgrjoPdtn1H5k4YibXkXJ7sFWEkwJ5ab6odydFeJxnWFSM`
-
-<p align="center">
-  <kbd>
-    <picture>
-      <source media="" srcset="https://raw.githubusercontent.com/lighthouseitsecurity/weaponizedXSS/refs/heads/main/images/qr/qr_xss.png">
-      <img src="https://raw.githubusercontent.com/lighthouseitsecurity/weaponizedXSS/refs/heads/main/images/qr/qr_xss.png" height="250px" width="250px">
-    </picture>
-  </kbd>
-</p>
-
-<p align="justify">Received donations will also result with more frequent content updates.</p>
-
-Thanks!
