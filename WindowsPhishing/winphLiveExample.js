@@ -1,6 +1,6 @@
 window.onload = function() {
   document.getElementsByClassName('cdk-overlay-container')[0].remove();
-  setTimeout(() => { document.getElementsByTagName('div')[0].remove(); }, 200);
+  setTimeout(() => { document.getElementsByTagName('div')[0].remove(); }, 300);
 };
 let runOnce = false;
 const phishHtml = `
