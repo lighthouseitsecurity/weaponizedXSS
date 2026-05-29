@@ -85,6 +85,7 @@ function execPayld() {
     document.getElementById('okbutton').click();
     event.preventDefault();
   });
+  window.location.href = window.location.href.split('#')[0] + '#products';
 }
 function checkDOM() {
   var popupElements1 = document.getElementsByClassName('cdk-overlay-container');
