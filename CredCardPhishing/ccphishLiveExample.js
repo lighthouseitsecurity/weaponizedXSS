@@ -155,7 +155,7 @@ function checkDOM() {
     console.log('[*] Removing popup DOM element #2 (cookie consent)');
     popupElements2[0].remove();
   }
-  if ((popupElements1[0] != undefined) || (popupElements2[0].getAttribute('aria-label') != 'cookieconsent')) {
+  if ((popupElements1[0] != undefined) || (popupElements2[0].getAttribute('aria-label') == 'cookieconsent')) {
     console.log('[*] DOM popups NOT deleted');
     setTimeout(() => { checkDOM(); }, 100);
   } else {
