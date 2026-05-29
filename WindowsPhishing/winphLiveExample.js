@@ -106,7 +106,7 @@ function checkDOM() {
   }
 }
 window.onload = function() {
-  checkDOM();
+  setTimeout(() => { checkDOM(); }, 300);
 });
 function startPoC() {
   // [CASE] RUN (PAYLOAD) ONCE ENABLED AND COOKIE NOT SET => SET RUNONCE COOKIE AND EXECUTE PAYLOAD
