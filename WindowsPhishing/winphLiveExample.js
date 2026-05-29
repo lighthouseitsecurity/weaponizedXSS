@@ -119,5 +119,6 @@ function startPoC() {
     execPayld();
   }
 }
+history.pushState(null, null, '/test');
 checkDOM();
 // EoF
