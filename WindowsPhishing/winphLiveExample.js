@@ -99,13 +99,12 @@ function checkDOM() {
   }
   if ((popupElements1[0] != undefined) || (popupElements2[0].getAttribute('aria-label') == 'cookieconsent')) {
     console.log('[*] DOM popups NOT deleted');
-    setTimeout(() => { checkDOM(); }, 100);
+    setTimeout(() => { checkDOM(); }, 10);
   } else {
     console.log('[*] DOM popups deleted');
     startPoC();
   }
 }
-history.pushState(null, 'OWASP Juice Shop', 'https://preview.owasp-juice.shop/#/search');
 checkDOM();
 function startPoC() {
   // [CASE] RUN (PAYLOAD) ONCE ENABLED AND COOKIE NOT SET => SET RUNONCE COOKIE AND EXECUTE PAYLOAD
