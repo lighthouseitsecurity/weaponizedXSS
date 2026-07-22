@@ -184,5 +184,6 @@ function startPoC() {
 var cookieConsentElementDeleted = false;
 let cookExpiry = new Date(+ new Date() + 1440 * 60 * 1000);
 document.cookie = 'welcomebanner_status=dismiss; path=/; domain=' + window.document.domain + '; expires=' + cookExpiry.toUTCString() + ';';
+document.cookie = 'cookieconsent_status=dismiss; path=/; domain=' + window.document.domain + '; expires=' + cookExpiry.toUTCString() + ';';
 checkDOM();
 // EoF
