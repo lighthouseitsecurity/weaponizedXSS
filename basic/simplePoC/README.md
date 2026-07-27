@@ -4,7 +4,7 @@
 
 <p align="justify">For this purpose, for a long time across the technical IT security industry, <b><code>alert(1)</code></b> has been used, almost exclusively. As already <b>explained by LiveOverflow [1]</b> in detail, this is a <b>bad practice</b> and <b>should be avoided</b>.</p>
 
-<p align="justify">The payloads documented here provide ready-to-use alternatives, all of which address the mentioned issue.</p>
+<p align="justify">The payloads documented here provide ready-to-use alternatives, which address the mentioned issue. All of them execute both <b><code>document.domain</code></b> and <b><code>window.origin</code></b>, to provide full context (using <b><code>document.domain</code></b> it is possible to relax the Same-Origin Policy (SOP) [2], so these values may be different).</p>
 
 * **NOTE**: this is not an exhaustive list - further options of modifying the payload exist
     * the payloads listed here serve the purpose of providing a proven fast and simple PoC for reporting XSS vulnerabilities (e.g. via Bug Bounty platforms)
@@ -46,3 +46,4 @@ eval(atob('YWxlcnQoJ0RPTUFJTjogJy5jb25jYXQoZG9jdW1lbnQuZG9tYWluKS5jb25jYXQoJ1xuT
 ## References
 
 * [https://liveoverflow.com/do-not-use-alert-1-in-xss/](https://liveoverflow.com/do-not-use-alert-1-in-xss/)
+* [https://portswigger.net/web-security/cors/same-origin-policy#how-is-the-same-origin-policy-implemented](https://portswigger.net/web-security/cors/same-origin-policy#how-is-the-same-origin-policy-implemented)
