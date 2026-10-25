@@ -1,9 +1,9 @@
 # Drupal
 
-Drupal is a free and open-source web CMS written in PHP.
+Drupal [1] is a free and open-source web CMS written in PHP.
 
-As of 2025 [[1](https://w3techs.com/technologies/details/cm-drupal), [2](https://whatcms.org/c/Drupal)], Drupal:
-* holds a **1.2% market share** for CMS-powered websites (0.8% of all websites)
+As of 2026 [1, 2], Drupal:
+* holds a **0.9% market share** for CMS-powered websites (0.6% of all websites)
 * is used by over **410,000 websites**
 
 ## Test Environment
@@ -29,10 +29,20 @@ As of 2025 [[1](https://w3techs.com/technologies/details/cm-drupal), [2](https:/
 
 * [ATO] Create New Admin User
 * **NOTES**:
-  * as of versions 10.4 and 11, the file upload via URL functionality was removed from Drupal (i.e. "install module" attack vector not available) \[[3](https://www.drupal.org/project/drupal/issues/3417136)\]
+  * as of versions 10.4 and 11, the file upload via URL functionality was removed from Drupal (i.e. "install module" attack vector not available) [4]
   * Drupal has no built-in PHP code editor installed (i.e. "patch file" attack vector not available)
     * alternatives do exist, but are configuration dependent (not documented here)
 
 ### Unauthenticated XSS
 
 * [Phish] Iframe Login Page
+
+## References
+
+[1] [https://new.drupal.org/](https://new.drupal.org/)
+
+[2] [https://w3techs.com/technologies/details/cm-drupal](https://w3techs.com/technologies/details/cm-drupal)
+
+[3] [https://whatcms.org/c/Drupal](https://whatcms.org/c/Drupal)
+
+[4] [https://www.drupal.org/project/drupal/issues/3417136](https://www.drupal.org/project/drupal/issues/3417136)
