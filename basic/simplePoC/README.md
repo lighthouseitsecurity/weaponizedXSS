@@ -17,7 +17,7 @@
 
 ## `simpleStd.js`
 
-* uses:
+* contains:
     * round brackets
     * quote
     * space
@@ -33,7 +33,7 @@ alert('DOMAIN: '.concat(document.domain).concat('\nORIGIN: ').concat(window.orig
 
 ## `simpleDec.js`
 
-* uses:
+* contains:
     * round brackets
 
 ```
@@ -46,7 +46,7 @@ alert(String.fromCharCode(68,79,77,65,73,78,58,32).concat(document.domain).conca
 
 ## `simpleB64.js`
 
-* uses:
+* contains:
     * round brackets
     * quote
     * `eval()`
