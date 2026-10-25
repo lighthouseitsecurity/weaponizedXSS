@@ -1,9 +1,9 @@
 # WordPress
 
-WordPress is a free and open-source CMS written in PHP.
+WordPress [1] is a free and open-source CMS written in PHP.
 
-As of 2025 [[1](https://w3techs.com/technologies/details/cm-wordpress), [2](https://whatcms.org/c/WordPress)], WordPress:
-* holds a **61.3% market share** for CMS-powered websites (43.5% of all websites)
+As of 2026 [2, 3], WordPress:
+* holds a **58.3% market share** for CMS-powered websites (39.6% of all websites)
 * is used by over **10,000,000 websites**
 
 ## Test Environment
@@ -34,3 +34,11 @@ As of 2025 [[1](https://w3techs.com/technologies/details/cm-wordpress), [2](http
 ### Unauthenticated XSS
 
 * [Phish] Iframe Login Page
+
+## References
+
+[1] [https://wordpress.com/](https://wordpress.com/)
+
+[2] [https://w3techs.com/technologies/details/cm-wordpress](https://w3techs.com/technologies/details/cm-wordpress)
+
+[3] [https://whatcms.org/c/WordPress](https://whatcms.org/c/WordPress)
