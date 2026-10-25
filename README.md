@@ -24,6 +24,10 @@
     * red teaming
     * bug bounty
 * [**all**] provide end-user IT security education and security awareness trainings to target organization's employees
-* [**iframe login**] set directive for `X-Frame-Options` to `DENY` [1] for all affected login pages
+* [**iframe login**] set directive for `X-Frame-Options` to `DENY` [1] and directive for `Content-Security-Policy` to `none` [2], or adjust accordingly, for all affected login pages
 
-[1] https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
+## References
+
+[1] [https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options)
+
+[2] [https://portswigger.net/web-security/cross-site-scripting/content-security-policy#protecting-against-clickjacking-using-csp](https://portswigger.net/web-security/cross-site-scripting/content-security-policy#protecting-against-clickjacking-using-csp)
