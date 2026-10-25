@@ -45,5 +45,6 @@ eval(atob('YWxlcnQoJ0RPTUFJTjogJy5jb25jYXQoZG9jdW1lbnQuZG9tYWluKS5jb25jYXQoJ1xuT
 
 ## References
 
-* [https://liveoverflow.com/do-not-use-alert-1-in-xss/](https://liveoverflow.com/do-not-use-alert-1-in-xss/)
-* [https://portswigger.net/web-security/cors/same-origin-policy#how-is-the-same-origin-policy-implemented](https://portswigger.net/web-security/cors/same-origin-policy#how-is-the-same-origin-policy-implemented)
+[1] [https://liveoverflow.com/do-not-use-alert-1-in-xss/](https://liveoverflow.com/do-not-use-alert-1-in-xss/)
+
+[2] [https://portswigger.net/web-security/cors/same-origin-policy#how-is-the-same-origin-policy-implemented](https://portswigger.net/web-security/cors/same-origin-policy#how-is-the-same-origin-policy-implemented)
