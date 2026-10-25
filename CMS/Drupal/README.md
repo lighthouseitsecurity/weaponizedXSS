@@ -2,7 +2,7 @@
 
 Drupal [1] is a free and open-source web CMS written in PHP.
 
-As of 2026 [1, 2], Drupal:
+As of 2026 [2, 3], Drupal:
 * holds a **0.9% market share** for CMS-powered websites (0.6% of all websites)
 * is used by over **410,000 websites**
 
